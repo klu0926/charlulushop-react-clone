@@ -1,7 +1,7 @@
 function OrderPage() {
   return (
-    <div className='orderPage'>
-      <h1>order page</h1>
+    <div className='page'>
+      <div className='RWD-container'>orders Page</div>
     </div>
   )
 }

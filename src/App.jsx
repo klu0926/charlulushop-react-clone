@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import './App.css'
 import ItemPage from './pages/itemPage/ItemPage.jsx'
 import ItemsPage from './pages/itemsPage/ItemsPage.jsx'
@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <div className='routers'>
           <Routes>
-            <Route path='/' element={<ItemsPage />}></Route>
+            <Route path='/' element={<Navigate to='/items' />}></Route>
             <Route path='/items/:itemId' element={<ItemPage />}></Route>
             <Route path='/items/' element={<ItemsPage />}></Route>
             <Route path='/cart' element={<CartPage />}></Route>

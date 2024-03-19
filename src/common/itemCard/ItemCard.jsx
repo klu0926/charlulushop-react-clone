@@ -10,28 +10,49 @@ function ItemCard({ item }) {
   // server cover image
   const coverUrl = url.server + `/images/${cover.id}`
 
+  // card class
   let itemCardClass = style.itemCard
   if (amount === 0) {
     itemCardClass = itemCardClass + ' ' + style.soldout
   }
 
-  return (
-    <a className={itemCardClass} href={itemUrl}>
-      <img
-        className={style.itemImage}
-        src={coverUrl}
-        alt={name}
-        loading='lazy'
-      />
-      <div className={style.itemInfoDiv}>
-        <span className={style.itemName}> {name} </span>
-        <div className={style.itemPriceDiv}>
-          <span className={style.itemPrice}>{price} </span>
-          <span className={style.itemStock}>{amount ? '有貨' : '售完'}</span>
+  // Conditionally render either a div or an anchor based on the amount
+  const renderElement =
+    amount === 0 ? (
+      <div className={itemCardClass}>
+        <img
+          className={style.itemImage}
+          src={coverUrl}
+          alt={name}
+          loading='lazy'
+        />
+        <div className={style.itemInfoDiv}>
+          <span className={style.itemName}> {name} </span>
+          <div className={style.itemPriceDiv}>
+            <span className={style.itemPrice}>{price} </span>
+            <span className={style.itemStock}>售完</span>
+          </div>
         </div>
       </div>
-    </a>
-  )
+    ) : (
+      <a className={itemCardClass} href={itemUrl}>
+        <img
+          className={style.itemImage}
+          src={coverUrl}
+          alt={name}
+          loading='lazy'
+        />
+        <div className={style.itemInfoDiv}>
+          <span className={style.itemName}> {name} </span>
+          <div className={style.itemPriceDiv}>
+            <span className={style.itemPrice}>{price} </span>
+            <span className={style.itemStock}>有貨</span>
+          </div>
+        </div>
+      </a>
+    )
+
+  return renderElement
 }
 
 export default ItemCard

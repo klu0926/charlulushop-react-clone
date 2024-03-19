@@ -1,7 +1,7 @@
 function CartPage() {
   return (
-    <div className='cartPage'>
-      <h1>cart page</h1>
+    <div className='page'>
+      <div className='RWD-container'>cart Page</div>
     </div>
   )
 }
