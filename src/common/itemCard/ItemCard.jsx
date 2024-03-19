@@ -4,12 +4,19 @@ import url from '../../data/url.js'
 function ItemCard({ item }) {
   const { id, name, cover, description, price, amount } = item
 
-  const urlBase = url.base
-  const itemUrl = urlBase + `/items/${id}`
-  const coverUrl = urlBase + `/images/${cover.id}`
+  // item page
+  const itemUrl = url.client + `/items/${id}`
+
+  // server cover image
+  const coverUrl = url.server + `/images/${cover.id}`
+
+  let itemCardClass = style.itemCard
+  if (amount === 0) {
+    itemCardClass = itemCardClass + ' ' + style.soldout
+  }
 
   return (
-    <a className={style.itemCard} href={itemUrl}>
+    <a className={itemCardClass} href={itemUrl}>
       <img
         className={style.itemImage}
         src={coverUrl}
@@ -20,7 +27,7 @@ function ItemCard({ item }) {
         <span className={style.itemName}> {name} </span>
         <div className={style.itemPriceDiv}>
           <span className={style.itemPrice}>{price} </span>
-          <span className={style.itemStock}>{amount}</span>
+          <span className={style.itemStock}>{amount ? '有貨' : '售完'}</span>
         </div>
       </div>
     </a>

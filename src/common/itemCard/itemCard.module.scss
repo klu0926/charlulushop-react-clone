@@ -41,7 +41,8 @@
         align-items: center;
         font-size: 1.1rem;
         font-weight: bold;
-        ::before {
+        color: var(--primary);
+        &::before {
           content: '台幣';
           margin-right: 3px;
           font-size: 0.8rem;
@@ -54,7 +55,30 @@
       }
       .itemStock {
         font-size: 0.9rem;
+        color: var(--primary);
       }
     }
+  }
+}
+
+.itemCard.soldout {
+  .itemImage {
+    filter: saturate(0.2);
+  }
+  .itemInfoDiv {
+    background-color: var(--grey-light);
+    color: var(--grey);
+  }
+  .itemName {
+    color: var(--grey);
+  }
+  .itemPrice {
+    color: var(--grey) !important;
+    &::before {
+      background-color: var(--grey) !important;
+    }
+  }
+  .itemStock {
+    color: var(--grey) !important;
   }
 }

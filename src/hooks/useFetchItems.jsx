@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import url from '../data/url'
-const itemsUrl = url.base + '/items'
+const itemsUrl = url.server + '/items'
 
 function useFetchItems() {
   const [items, setItems] = useState(null)
