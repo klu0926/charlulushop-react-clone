@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --min-width: 320px;
+  --mid-width: 750px;
+  --max-width: 1100px;
+  --primary: rgb(251, 91, 118);
+  --primary-light: rgb(255, 144, 162);
+  --secondary: rgb(59, 170, 255);
+  --secondary-light: rgb(120, 196, 254);
+  --border: rgb(213, 213, 213);
+  --shadow: rgba(0, 0, 0, 0.188);
+  --dark: rgb(41, 41, 41);
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.page {
+  display: block;
+  min-height: 800px;
+  width: 100%;
+  margin-top: 60px;
+}
+
+.RWD-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 10px;
+  width: var(--min-width);
+}
+
+@media screen and (min-width: 800px) {
+  .RWD-container {
+    width: var(--mid-width);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .RWD-container {
+    width: var(--max-width);
+  }
+}

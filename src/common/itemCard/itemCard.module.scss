@@ -1,0 +1,60 @@
+.itemCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  border-radius: 5px;
+  margin: auto;
+  border: 1px solid var(--light);
+  transition: all 0.2s ease-in-out;
+  box-shadow: 1px 1px 5px 0px var(--shadow);
+  text-decoration: none;
+  outline: none;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  .itemImage {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  .itemInfoDiv {
+    width: 100%;
+    padding: 5px;
+    bottom: 0;
+    left: 0;
+    .itemName {
+      display: inline-block;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      flex: 1;
+      white-space: nowrap;
+      font-size: 0.9rem;
+      color: black;
+    }
+    .itemPriceDiv {
+      display: flex;
+      justify-content: space-between;
+      .itemPrice {
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
+        font-weight: bold;
+        ::before {
+          content: '台幣';
+          margin-right: 3px;
+          font-size: 0.8rem;
+          font-weight: normal;
+          background-color: var(--primary);
+          color: white;
+          padding: 1px 4px;
+          border-radius: 4px;
+        }
+      }
+      .itemStock {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

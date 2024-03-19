@@ -1,0 +1,14 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  min-height: 50px;
+  box-shadow: 1px 3px 5px var(--shadow);
+  .container {
+    width: var(--min-width);
+  }
+}
