@@ -1,0 +1,24 @@
+.searchContainer {
+  display: flex;
+  border: 1px solid var(--grey);
+  padding: 4px 10px;
+  border-radius: 12px;
+  width: calc(var(--min-width) - 20px);
+  background-color: white;
+
+  .searchInput {
+    appearance: none;
+    outline: none;
+    border: none;
+    flex: 1;
+    min-width: 50px;
+  }
+  .reset {
+    appearance: none;
+    border: none;
+    background: none;
+    color: var(--grey);
+    font-size: 1rem;
+    cursor: pointer;
+  }
+}

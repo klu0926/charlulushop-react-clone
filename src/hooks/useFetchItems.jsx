@@ -1,11 +1,19 @@
 import { useState, useEffect } from 'react'
 
 import url from '../data/url'
-const itemsUrl = url.server + '/items'
 
-function useFetchItems() {
+function useFetchItems(tag, search) {
   const [items, setItems] = useState(null)
   const [error, setError] = useState(null)
+
+  const queryTag = tag || ''
+  const querySearch= search || ''
+
+  // URL
+  let itemsUrl = url.server + '/items'
+  itemsUrl += '?queryTag=' + queryTag + '&' + 'search=' + querySearch
+
+  console.log('items url: ', itemsUrl)
 
   useEffect(() => {
     // abort controller
@@ -35,9 +43,9 @@ function useFetchItems() {
     // clean up
     return () => {
       abortController.abort()
-      console.log('abort fetching')
+      console.log('abort fetching items')
     }
-  }, [])
+  }, [itemsUrl])
   return { items, error }
 }
 

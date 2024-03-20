@@ -1,8 +1,7 @@
 import style from './navbar.module.scss'
-
 import url from '../../data/url'
 
-function Navbar() {
+function Navbar({ children }) {
   const itemsPageUrl = url.client + '/items'
   const cartPageUrl = url.client + '/cart'
   const orderPageUrl = url.client + '/orders'

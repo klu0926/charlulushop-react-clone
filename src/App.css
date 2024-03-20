@@ -7,8 +7,10 @@
 :root {
   /* width */
   --min-width: 320px;
-  --mid-width: 750px;
-  --max-width: 1100px;
+  --mid-width: 600px;
+  --large-width: 750px;
+  --largest-width: 1100px;
+
   /* color */
   --red: rgba(246, 20, 58, 0.938);
   --primary: rgb(251, 91, 118);
@@ -44,14 +46,20 @@ a {
   width: var(--min-width);
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 600px) {
   .RWD-container {
     width: var(--mid-width);
   }
 }
 
+@media screen and (min-width: 800px) {
+  .RWD-container {
+    width: var(--large-width);
+  }
+}
+
 @media screen and (min-width: 1200px) {
   .RWD-container {
-    width: var(--max-width);
+    width: var(--largest-width);
   }
 }

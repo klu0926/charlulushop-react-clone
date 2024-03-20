@@ -5,6 +5,11 @@
   width: 100%;
 }
 
+@media screen and (min-width: 600px) {
+  .gridContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
 @media screen and (min-width: 800px) {
   .gridContainer {
@@ -17,4 +22,3 @@
     grid-template-columns: repeat(5, 1fr);
   }
 }
-

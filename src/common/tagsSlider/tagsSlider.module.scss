@@ -1,0 +1,39 @@
+.tagsSlider {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin: 5px 0px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--primary-light2);
+  padding: 10px 4px;
+  gap: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+
+  .tag {
+    display: inline-block;
+    padding: 2px 5px;
+    background: white;
+    border: 1px solid var(--primary);
+    border-radius: 3px;
+    font-size: 0.85rem;
+    color: var(--primary);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    &.current {
+      background-color: var(--primary);
+      color: white;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .tagsSlider {
+    flex-wrap: wrap;
+  }
+}
