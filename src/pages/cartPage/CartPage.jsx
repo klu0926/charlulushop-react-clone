@@ -45,7 +45,7 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
       const result = await sweetAlert.confirm(
         '確認要下單嗎？',
         '',
-        '<p>下單後如需修改需要通過IG聯絡夏洛特</p><p>IG帳號: <a href="https://www.instagram.com/charlotte_journalday/" target="_blank">charlotte_journalday</a></p>',
+        '<p>下單完成後請通知夏洛特，以方便安排出貨</p><p>如需修改訂單也請用IG聯絡夏洛特</p><p>IG帳號: <a href="https://www.instagram.com/charlotte_journalday/" target="_blank">charlotte_journalday</a></p>',
       )
       // 開始post order
       if (result.isConfirmed) {
@@ -71,9 +71,9 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
         const json = await response.json()
         if (!json.ok) throw new Error(json.err)
         await sweetAlert.notice(
-          '下單成功',
+          '下單成功，請聯絡夏洛特～',
           'success',
-          '可以使用 [查詢訂單] 頁面來查詢您的訂單狀況',
+          '同時也可以使用 [查詢訂單] 來查詢訂單狀況',
         )
         handleClearAllCartItems()
       }
@@ -113,7 +113,7 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
                 onClick={() => {
                   handleRemoveClick(item.id)
                 }}>
-                  x
+                x
               </button>
             </div>
           )

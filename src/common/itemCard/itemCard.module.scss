@@ -78,9 +78,9 @@
   .itemInfoDiv {
     background-color: var(--grey-light);
     color: var(--grey);
-  }
-  .itemName {
-    color: var(--grey);
+    .itemName {
+      color: var(--grey);
+    }
   }
   .itemPrice {
     color: var(--grey) !important;

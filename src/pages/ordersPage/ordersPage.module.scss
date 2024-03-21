@@ -70,6 +70,16 @@
     border-radius: 4px;
     background-color: rgb(228, 234, 239);
     box-shadow: 1px 1px 3px var(--border);
+    &.cancel {
+      background-color: rgb(255, 232, 232);
+      .header {
+        color: var(--grey);
+      }
+      .item {
+        filter: saturate(0);
+        color: var(--grey);
+      }
+    }
     .header {
       display: flex;
       justify-content: space-between;
@@ -85,7 +95,7 @@
         height: 70px;
         border-radius: 4px;
       }
-      .info{
+      .info {
         display: flex;
         flex-direction: column;
         gap: 2px;
@@ -93,9 +103,9 @@
       .name {
         font-size: 1.2rem;
       }
-      .price{
+      .price {
         font-size: 1rem;
-        &::before{
+        &::before {
           content: '價格:';
         }
       }

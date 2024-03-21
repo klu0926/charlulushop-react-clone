@@ -37,11 +37,16 @@ function OrderPage() {
             總共有<span> {orders.length} </span>筆訂單
           </p>
         </div>
-
         <div className={style.orderContainer}>
           {orders.map((order) => {
             return (
-              <div key={order.id} className={style.order}>
+              <div
+                key={order.id}
+                className={
+                  order.status === '取消訂單'
+                    ? `${style.cancel} ${style.order}`
+                    : style.order
+                }>
                 <div className={style.header}>
                   <span>編號: {order.id}</span>
                   <span>狀態: {order.status}</span>
