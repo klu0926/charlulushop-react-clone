@@ -1,7 +1,7 @@
 import style from './navbar.module.scss'
 import url from '../../data/url'
 
-function Navbar({ children }) {
+function Navbar({ children, cartItemsId }) {
   const itemsPageUrl = url.client + '/items'
   const cartPageUrl = url.client + '/cart'
   const orderPageUrl = url.client + '/orders'
@@ -12,14 +12,14 @@ function Navbar({ children }) {
         <div className={style.navbarContainer}>
           <a className={style.logoContainer} href={itemsPageUrl}>
             <img className={style.logo} src='/images/cry.png' alt='logo' />
-            <span className={style.logoText}>段。捨。離</span>
+            <span className={style.logoText}>斷。捨。離</span>
           </a>
           <div className={style.links}>
             <a className={style.link} href={itemsPageUrl}>
-              好貨
+              全部物件
             </a>
             <a className={style.link} href={orderPageUrl}>
-              訂單
+              查詢訂單
             </a>
             <a className={style.cart} href={cartPageUrl}>
               <img
@@ -27,7 +27,11 @@ function Navbar({ children }) {
                 src='/images/cart.png'
                 alt='cart'
               />
-              <div className={style.cartCount}>10</div>
+              {cartItemsId && (
+                <div className={style.cartCount}>
+                  {cartItemsId ? cartItemsId.length : 0}
+                </div>
+              )}
             </a>
           </div>
         </div>

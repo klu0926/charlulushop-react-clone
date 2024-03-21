@@ -1,7 +1,7 @@
 import style from './itemCard.module.scss'
 import url from '../../data/url.js'
 
-function ItemCard({ item }) {
+function ItemCard({ item, inCart }) {
   const { id, name, cover, description, price, amount } = item
 
   // item page

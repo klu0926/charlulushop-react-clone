@@ -1,0 +1,134 @@
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  /*images container*/
+  .itemImageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    overflow: hidden;
+
+    .itemCover {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 6px;
+    }
+    .pictureSlider {
+      display: flex;
+      flex-wrap: nowrap;
+      height: 70px;
+      width: 100%;
+      gap: 4px;
+      overflow: hidden;
+      overflow-x: auto;
+      white-space: nowrap;
+
+      .itemPicture {
+        border-radius: 5px;
+        height: 100%;
+        cursor: pointer;
+
+        &:hover {
+          border: 1px solid var(--primary);
+        }
+      }
+    }
+  }
+
+  /*info container*/
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 100%;
+    gap: 10px;
+    padding: 10px;
+    .tagsContainer {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 5px 0px;
+      gap: 10px;
+
+      .tag {
+        border: 1px solid var(--primary);
+        background-color: white;
+        color: var(--primary);
+        padding: 1px 5px;
+        font-size: 0.9rem;
+        border-radius: 3px;
+        cursor: default;
+      }
+    }
+
+    .header {
+      color: var(--gray);
+    }
+    .title {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      padding: 2px 4px;
+      margin: 4px 0;
+    }
+    .text {
+      color: var(--gray);
+      padding: 2px 0px;
+    }
+    .price {
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+    .addButton {
+      width: 150px;
+      padding: 10px 10px;
+      margin: 10px 0px;
+    }
+    .addButtonDisable {
+      width: 150px;
+      padding: 10px 10px;
+      margin: 10px 0px;
+      background-color: var(--grey);
+      box-shadow: none;
+      cursor: default;
+
+      &:hover {
+        box-shadow: none;
+        transform: scale(1);
+      }
+    }
+    .removeButton {
+      width: 150px;
+      padding: 10px 10px;
+      margin: 10px 0px;
+      background-color: var(--primary);
+    }
+  }
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 600px;
+  color: var(--grey);
+}
+
+@media screen and (min-width: 600px) {
+  .itemContainer {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 800px) {
+}
+
+@media screen and (min-width: 1200px) {
+}

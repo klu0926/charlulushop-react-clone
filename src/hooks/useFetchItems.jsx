@@ -1,19 +1,16 @@
 import { useState, useEffect } from 'react'
-
 import url from '../data/url'
 
 function useFetchItems(tag, search) {
   const [items, setItems] = useState(null)
-  const [error, setError] = useState(null)
+  const [fetchItemsError, setFetchItemsError] = useState(null)
 
   const queryTag = tag || ''
-  const querySearch= search || ''
+  const querySearch = search || ''
 
   // URL
   let itemsUrl = url.server + '/items'
   itemsUrl += '?queryTag=' + queryTag + '&' + 'search=' + querySearch
-
-  console.log('items url: ', itemsUrl)
 
   useEffect(() => {
     // abort controller
@@ -21,8 +18,9 @@ function useFetchItems(tag, search) {
 
     // fetch
     async function fetchItems() {
-      console.log('fetching items...')
       try {
+        setFetchItemsError(null)
+
         const response = await fetch(itemsUrl, {
           signal: abortController.signal,
         })
@@ -35,7 +33,7 @@ function useFetchItems(tag, search) {
         }
         setItems(json.data)
       } catch (err) {
-        setError(err.message)
+        setFetchItemsError(err.message)
       }
     }
     fetchItems()
@@ -46,7 +44,7 @@ function useFetchItems(tag, search) {
       console.log('abort fetching items')
     }
   }, [itemsUrl])
-  return { items, error }
+  return { items, fetchItemsError }
 }
 
 export default useFetchItems

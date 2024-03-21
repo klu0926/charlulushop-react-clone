@@ -1,0 +1,112 @@
+.orderPage {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+  width: 100%;
+  margin: 0 auto;
+  .searchContainer {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .orderDisplay {
+    width: 100%;
+    padding: 10px;
+    padding-top: 0px;
+    .noOrder {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .totalOrder {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  padding: 20px 15px;
+  border-radius: 4px;
+  margin: 20px 0px;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 15px;
+
+  input {
+    flex: 1;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid var(--grey);
+    padding: 2px 10px;
+  }
+}
+
+.searchButton {
+  margin: 0 auto;
+  width: 200px;
+}
+
+.orderContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .order {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--grey);
+    gap: 5px;
+    border-radius: 4px;
+    background-color: rgb(228, 234, 239);
+    box-shadow: 1px 1px 3px var(--border);
+    .header {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px;
+      border-bottom: 1px solid var(--border);
+    }
+    .item {
+      display: flex;
+      padding: 5px;
+      gap: 10px;
+      img {
+        width: 70px;
+        height: 70px;
+        border-radius: 4px;
+      }
+      .info{
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .name {
+        font-size: 1.2rem;
+      }
+      .price{
+        font-size: 1rem;
+        &::before{
+          content: '價格:';
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .orderPage {
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+  }
+}

@@ -3,8 +3,10 @@
   border: 1px solid var(--grey);
   padding: 4px 10px;
   border-radius: 12px;
-  width: calc(var(--min-width) - 20px);
+  width: 100%;
+  max-width: 300px;
   background-color: white;
+  margin: 0 auto;
 
   .searchInput {
     appearance: none;
@@ -19,6 +21,10 @@
     background: none;
     color: var(--grey);
     font-size: 1rem;
+    box-shadow: none;
     cursor: pointer;
+    &:hover {
+      color: var(--primary);
+    }
   }
 }
