@@ -15,7 +15,6 @@ function useFetchSingleItem(id) {
     const abortController = new AbortController()
 
     async function fetchItem(id) {
-      console.log('fetching item...')
       try {
         const response = await fetch(itemUrl, {
           signal: abortController.signal,
@@ -41,7 +40,6 @@ function useFetchSingleItem(id) {
     // clean up
     return () => {
       abortController.abort()
-      console.log('abort fetching item')
     }
   }, [itemUrl])
 

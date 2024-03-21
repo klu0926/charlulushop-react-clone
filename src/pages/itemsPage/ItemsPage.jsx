@@ -6,16 +6,14 @@ import TagsSlider from '../../common/tagsSlider/TagsSlider'
 import Search from '../../common/search/Search'
 import useSearch from '../../hooks/useSearch'
 
-function ItemsPage(cartItems) {
+function ItemsPage({ cartItemsId }) {
   const { search, setSearch } = useSearch()
   const { tags, currentTagName, setCurrentTagName } = useFetchTags()
   const { items, fetchItemsError } = useFetchItems(currentTagName, search)
 
-  console.log('items page error:', fetchItemsError)
-
-  function checkInCart(item) {
-    if (!item || !cartItems) return false
-    return cartItems.some((i) => i.id === item.id)
+  function checkInCart(itemId) {
+    if (itemId === undefined || !cartItemsId) return false
+    return cartItemsId.some((i) => i === itemId)
   }
 
   // 主內容
@@ -24,7 +22,9 @@ function ItemsPage(cartItems) {
     contains = (
       <div className={style.gridContainer}>
         {items.map((item) => {
-          return <ItemCard key={item.id} item={item} inCart={checkInCart()} />
+          return (
+            <ItemCard key={item.id} item={item} inCart={checkInCart(item.id)} />
+          )
         })}
       </div>
     )

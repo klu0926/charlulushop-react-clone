@@ -13,7 +13,6 @@ function useFetchTags() {
 
     // fetch
     async function fetchTags() {
-      console.log('fetching tags...')
       try {
         const response = await fetch(tagsUrl, {
           signal: abortController.signal,
@@ -36,7 +35,6 @@ function useFetchTags() {
     // clean up
     return () => {
       abortController.abort()
-      console.log('abort fetching tags')
     }
   }, [])
 

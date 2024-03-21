@@ -6,7 +6,6 @@ import url from '../../data/url'
 function OrderPage() {
   const { orders, fetchOrders, fetchOrderError } = useFetchOrders()
 
-  console.log('orders', orders)
   const coverUrl = url.server + '/images/'
 
   async function handleFetchOrder(e) {

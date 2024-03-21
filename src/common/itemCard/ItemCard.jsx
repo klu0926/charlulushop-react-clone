@@ -15,6 +15,10 @@ function ItemCard({ item, inCart }) {
   if (amount === 0) {
     itemCardClass = itemCardClass + ' ' + style.soldout
   }
+  if (inCart){
+    itemCardClass = itemCardClass + ' ' + style.inCart 
+  }
+
 
   // Conditionally render either a div or an anchor based on the amount
   const renderElement =

@@ -41,7 +41,6 @@ function useFetchItems(tag, search) {
     // clean up
     return () => {
       abortController.abort()
-      console.log('abort fetching items')
     }
   }, [itemsUrl])
   return { items, fetchItemsError }

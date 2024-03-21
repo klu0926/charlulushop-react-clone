@@ -6,7 +6,6 @@ function useFetchCartItems(cartItemIds = []) {
   const [fetchCartItemsError, setFetchCartItemsError] = useState(null)
 
   let itemsUrl = url.server + '/items/cart/' + JSON.stringify(cartItemIds)
-  console.log('fetch cart item url:', itemsUrl)
 
   useEffect(() => {
     // abort controller
@@ -15,7 +14,6 @@ function useFetchCartItems(cartItemIds = []) {
     // fetch
     async function fetchCartItems() {
       setFetchCartItemsError(null)
-      console.log('fetching cart items...')
       try {
         const response = await fetch(itemsUrl, {
           signal: abortController.signal,

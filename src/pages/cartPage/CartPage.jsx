@@ -7,7 +7,6 @@ import { useState } from 'react'
 function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
   const [isLoading, setIsLoading] = useState(false)
   const { items, fetchCartItemsError } = useFetchCartItems(cartItemsId)
-  console.log('cart items:', items)
 
   const imageUrl = url.server + '/images/'
   const orderUrl = url.server + '/orders/'

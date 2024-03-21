@@ -29,7 +29,9 @@ function App() {
                   removeCartItem={removeCartItem}
                 />
               }></Route>
-            <Route path='/items/' element={<ItemsPage />}></Route>
+            <Route
+              path='/items/'
+              element={<ItemsPage cartItemsId={cartItemsId} />}></Route>
             <Route
               path='/cart'
               element={
