@@ -8,10 +8,18 @@ import Navbar from './common/navbar/Navbar.jsx'
 import Footer from './common/footer/Footer.jsx'
 // hooks
 import useCart from './hooks/useCart.jsx'
+// url
+import url from './data/url.js'
 
 function App() {
   const { cartItemsId, addCartItem, removeCartItem, clearAllCartItems } =
     useCart()
+
+  const root = url.client
+  const itemsPageUrl = url.client + '/items'
+  const itemPageUrl = url.client + '/items/:itemId'
+  const ordersPageUrl = url.client + '/orders'
+  const cartPageUrl = url.client + '/cart'
 
   return (
     <>
@@ -19,9 +27,9 @@ function App() {
       <BrowserRouter>
         <div className='routers'>
           <Routes>
-            <Route path='/' element={<Navigate to='/items' />}></Route>
+            <Route path={root} element={<Navigate to={itemsPageUrl} />}></Route>
             <Route
-              path='/items/:itemId'
+              path={itemPageUrl}
               element={
                 <ItemPage
                   cartItemsId={cartItemsId}
@@ -30,10 +38,10 @@ function App() {
                 />
               }></Route>
             <Route
-              path='/items/'
+              path={itemsPageUrl}
               element={<ItemsPage cartItemsId={cartItemsId} />}></Route>
             <Route
-              path='/cart'
+              path={cartPageUrl}
               element={
                 <CartPage
                   cartItemsId={cartItemsId}
@@ -41,7 +49,7 @@ function App() {
                   clearAllCartItems={clearAllCartItems}
                 />
               }></Route>
-            <Route path='/orders' element={<OrdersPage />}></Route>
+            <Route path={ordersPageUrl} element={<OrdersPage />}></Route>
           </Routes>
         </div>
       </BrowserRouter>

@@ -1,4 +1,5 @@
 import style from './footer.module.scss'
+import url from '../../data/url'
 
 function Footer() {
   return (
@@ -7,12 +8,16 @@ function Footer() {
         <span>CharluluStory 斷。捨。離</span>
         <div className={style.mediaContainer}>
           <a href='https://instagram.com/charlotte_journalday' target='_blank'>
-            <img className={style.mediaIcon} src='/images/ig.png' alt='ig' />
+            <img
+              className={style.mediaIcon}
+              src={`${url.client}/images/ig.png`}
+              alt='ig'
+            />
           </a>
           <a href='https://www.youtube.com/@CharluluStory' target='_black'>
             <img
               className={style.mediaIcon}
-              src='/images/youtube.png'
+              src={`${url.client}/images/youtube.png`}
               alt='youtube'
             />
           </a>

@@ -5,7 +5,7 @@ function ItemCard({ item, inCart }) {
   const { id, name, cover, description, price, amount } = item
 
   // item page
-  const itemUrl =  `/items/${id}`
+  const itemUrl = url.client + `/items/${id}`
   // server cover image
   const coverUrl = url.server + `/images/${cover.id}`
 
@@ -14,10 +14,9 @@ function ItemCard({ item, inCart }) {
   if (amount === 0) {
     itemCardClass = itemCardClass + ' ' + style.soldout
   }
-  if (inCart){
-    itemCardClass = itemCardClass + ' ' + style.inCart 
+  if (inCart) {
+    itemCardClass = itemCardClass + ' ' + style.inCart
   }
-
 
   // Conditionally render either a div or an anchor based on the amount
   const renderElement =
