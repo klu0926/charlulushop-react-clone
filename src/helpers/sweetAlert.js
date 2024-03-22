@@ -60,6 +60,8 @@ const sweetAlert = {
         text: text || '',
         confirmButtonText: '好吧',
         confirmButtonColor: '#F7647D',
+        closeOnClickOutside: false, 
+        allowOutsideClick: false,
         customClass: {
           title: 'swal-title',
         }
