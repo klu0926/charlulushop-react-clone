@@ -32,7 +32,7 @@ function App() {
       <HashRouter>
         <div className='routers'>
           <Routes>
-            <Route path='/' element={<Navigate to={itemPageUrl} />}></Route>
+            <Route path='/' element={<Navigate to={itemsPageUrl} />}></Route>
             <Route
               path={itemPageUrl}
               element={
