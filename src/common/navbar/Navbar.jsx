@@ -24,7 +24,7 @@ function Navbar({ cartItemsId }) {
             <a className={style.cart} href={cartPageUrl}>
               <img
                 className={style.cartIcon}
-                src='/images/cart.png'
+                src={`${url.client}/images/cart.png`}
                 alt='cart'
               />
               {cartItemsId && (
