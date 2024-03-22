@@ -78,7 +78,7 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
       }
     } catch (err) {
       console.error(err)
-      sweetAlert.error('下單失敗', err.message)
+      await sweetAlert.error('下單失敗', err.message)
       window.location.reload()
     }
   }
