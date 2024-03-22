@@ -37,8 +37,8 @@
       overflow: hidden;
       flex: 1;
       white-space: nowrap;
-      font-size: 0.9rem;
-      color: black;
+      font-size: var(--min-font);
+      color: var(--dark) !important;
       max-width: 142px;
     }
     .itemPriceDiv {
@@ -47,22 +47,16 @@
       .itemPrice {
         display: flex;
         align-items: center;
-        font-size: 1.1rem;
-        font-weight: bold;
-        color: var(--primary);
+        font-size: var(--min-font);
+        color: var(--dark);
         &::before {
-          content: '台幣';
+          content: '$';
           margin-right: 3px;
-          font-size: 0.8rem;
-          font-weight: normal;
-          background-color: var(--primary);
-          color: white;
-          padding: 1px 4px;
-          border-radius: 4px;
+          font-size: var(--min-font)
         }
       }
       .itemStock {
-        font-size: 0.9rem;
+        font-size: var(--min-font);
         color: var(--primary);
       }
     }
@@ -77,7 +71,7 @@
     box-shadow: 0.2px 0.2px 3px 0px var(--shadow);
   }
   .itemImage {
-    filter: saturate(0.2);
+    filter: saturate(0);
   }
   .itemInfoDiv {
     background-color: var(--grey-light);
@@ -87,10 +81,7 @@
     }
   }
   .itemPrice {
-    color: var(--grey) !important;
-    &::before {
-      background-color: var(--grey) !important;
-    }
+    color: var(--grey);
   }
   .itemStock {
     color: var(--grey) !important;

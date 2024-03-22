@@ -13,7 +13,10 @@
     width: 100%;
     padding: 10px;
     overflow: hidden;
-
+    .pictureCount{
+      color: var(--grey);
+      font-size: var(--mid-font);
+    }
     .itemCover {
       width: 100%;
       max-width: 450px;
@@ -53,14 +56,14 @@
       display: flex;
       flex-wrap: wrap;
       margin: 5px 0px;
-      gap: 10px;
+      gap: 5px;
 
       .tag {
         border: 1px solid var(--primary);
         background-color: white;
         color: var(--primary);
-        padding: 1px 5px;
-        font-size: 0.9rem;
+        padding: 1px 4px;
+        font-size: var(--min-font);
         border-radius: 3px;
         cursor: default;
       }
@@ -68,33 +71,37 @@
 
     .header {
       color: var(--gray);
+      font-size: var(--mid-font);
     }
     .title {
       display: inline-block;
       background-color: var(--primary);
       color: white;
       border-radius: 4px;
-      font-size: 0.9rem;
+      font-size: var(--min-font);
       padding: 2px 4px;
       margin: 4px 0;
     }
     .text {
       color: var(--gray);
       padding: 2px 0px;
+      font-size: var(--mid-font);
     }
     .price {
       color: var(--primary);
-      font-size: 1.5rem;
+      font-size: var(--mid-font);
     }
     .addButton {
-      width: 150px;
-      padding: 10px 10px;
-      margin: 10px 0px;
+      width: 100%;
+      max-width: 160px;
+      padding: 10px;
+      margin: 10px auto;
+      font-size: var(--mid-font);
     }
     .addButtonDisable {
       width: 150px;
-      padding: 10px 10px;
-      margin: 10px 0px;
+      padding: 10px;
+      margin: 10px auto;
       background-color: var(--grey);
       box-shadow: none;
       cursor: default;
@@ -105,9 +112,10 @@
       }
     }
     .removeButton {
-      width: 150px;
-      padding: 10px 10px;
-      margin: 10px 0px;
+      width: 100%;
+      max-width: 160px;
+      padding: 10px;
+      margin: 10px auto;
       background-color: var(--primary);
     }
   }

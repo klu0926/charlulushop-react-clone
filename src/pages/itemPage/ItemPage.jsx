@@ -62,7 +62,7 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
               />
             ))}
           </div>
-          <span className='color-grey'>照片&#40;{imageCount}&#41;</span>
+          <span className={style.pictureCount}>照片&#40;{imageCount}&#41;</span>
         </div>
         <div className={style.infoContainer}>
           <h2 className={style.header}>{item.name}</h2>
@@ -87,7 +87,7 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
           </div>
           {status === 'available' && (
             <button className={style.addButton} onClick={handleAddButtonClick}>
-              加入
+              加入購物車
             </button>
           )}
           {status === 'inCart' && (
@@ -98,7 +98,7 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
             </button>
           )}
           {status === 'sold' && (
-            <button className={style.addButtonDisable}>已售出</button>
+            <button className={style.addButtonDisable}>商品已售出</button>
           )}
         </div>
       </div>

@@ -5,8 +5,7 @@ function ItemCard({ item, inCart }) {
   const { id, name, cover, description, price, amount } = item
 
   // item page
-  const itemUrl = url.client + `/items/${id}`
-
+  const itemUrl =  `/items/${id}`
   // server cover image
   const coverUrl = url.server + `/images/${cover.id}`
 

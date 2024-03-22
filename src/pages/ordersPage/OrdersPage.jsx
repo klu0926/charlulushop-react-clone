@@ -24,7 +24,7 @@ function OrderPage() {
   let ordersContent = null
   if (!orders || orders.length === 0) {
     ordersContent = (
-      <div className={style.noOrder}>
+      <div className={style.orderCount}>
         <p>目前沒有訂單</p>
       </div>
     )
@@ -32,7 +32,7 @@ function OrderPage() {
     ordersContent = (
       <>
         <div className={style.totalOrder}>
-          <p className='info'>
+          <p className={style.orderCount}>
             總共有<span> {orders.length} </span>筆訂單
           </p>
         </div>
@@ -76,20 +76,22 @@ function OrderPage() {
         <div className='background'>
           <div className={style.orderPage}>
             <div className={style.searchContainer}>
-              <h1>訂單查詢</h1>
-              <p className='info'>
-                請使用<span> 名稱 </span>跟<span> 信箱 </span>來查詢您的訂單
-              </p>
-              <p>如果需要修改或是刪除訂單請聯絡夏洛特</p>
-              <p>
-                IG帳號:{' '}
-                <a
-                  className='text-link'
-                  href='https://www.instagram.com/charlotte_journalday/'
-                  target='_blank'>
-                  charlotte_journalday
-                </a>
-              </p>
+              <h2 className={style.orderInoTitle}>訂單查詢</h2>
+              <div className={style.orderInfo}>
+                <p className='info'>
+                  請使用<span> 名稱 </span>跟<span> 信箱 </span>來查詢您的訂單
+                </p>
+                <p>如果需要修改或是刪除訂單請聯絡夏洛特</p>
+                <p>
+                  IG帳號:{' '}
+                  <a
+                    className='text-link'
+                    href='https://www.instagram.com/charlotte_journalday/'
+                    target='_blank'>
+                    charlotte_journalday
+                  </a>
+                </p>
+              </div>
               <div className={style.search}>
                 <div className={style.inputGroup}>
                   <label htmlFor='name'>名稱: </label>

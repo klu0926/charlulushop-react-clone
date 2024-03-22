@@ -5,19 +5,30 @@
   gap: 20px;
   width: 100%;
   margin: 0 auto;
+  .orderInoTitle {
+    font-size: var(--large-font);
+  }
+  .orderInfo {
+    font-size: var(--min-font);
+  }
+
   .searchContainer {
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
+    font-size: var(--min-font);
   }
   .orderDisplay {
     width: 100%;
     padding: 10px;
     padding-top: 0px;
-    .noOrder {
+
+    .orderCount {
       display: flex;
       justify-content: center;
       align-items: center;
+      color: var(--grey);
+      font-size: var(--min-font);
     }
     .totalOrder {
       display: flex;
@@ -53,7 +64,7 @@
 
 .searchButton {
   margin: 0 auto;
-  width: 200px;
+  width: 100px;
 }
 
 .orderContainer {
@@ -85,6 +96,7 @@
       justify-content: space-between;
       padding: 5px;
       border-bottom: 1px solid var(--border);
+      font-size: var(--min-font);
     }
     .item {
       display: flex;
@@ -101,10 +113,10 @@
         gap: 2px;
       }
       .name {
-        font-size: 1.2rem;
+        font-size: var(--min-font);
       }
       .price {
-        font-size: 1rem;
+        font-size: var(--min-font);
         &::before {
           content: '價格:';
         }

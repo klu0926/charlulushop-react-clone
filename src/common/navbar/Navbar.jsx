@@ -1,10 +1,9 @@
 import style from './navbar.module.scss'
-import url from '../../data/url'
 
-function Navbar({ children, cartItemsId }) {
-  const itemsPageUrl = url.client + '/items'
-  const cartPageUrl = url.client + '/cart'
-  const orderPageUrl = url.client + '/orders'
+function Navbar({ cartItemsId }) {
+  const itemsPageUrl = '/items'
+  const cartPageUrl = '/cart'
+  const orderPageUrl = '/orders'
 
   return (
     <div className={style.navbar}>
@@ -16,7 +15,7 @@ function Navbar({ children, cartItemsId }) {
           </a>
           <div className={style.links}>
             <a className={style.link} href={itemsPageUrl}>
-              全部物件
+              全部好貨
             </a>
             <a className={style.link} href={orderPageUrl}>
               查詢訂單

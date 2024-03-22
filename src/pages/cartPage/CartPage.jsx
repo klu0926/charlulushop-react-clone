@@ -82,6 +82,28 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
     }
   }
 
+  // info
+  let info = null
+  info = (
+    <div className={style.infoContainer}>
+      <span className={style.infoTitle}>* 下單小提醒 *</span>
+      <ul>
+        <p className='info'>
+          -請填寫<span>正確</span>的姓名、郵件跟IG帳號，以便
+          <span>查詢訂單</span>
+        </p>
+        <p className='info'>
+          -下單後請<span>聯絡夏洛特</span>
+          ，以便安排出貨
+        </p>
+        <p className='info'>
+          -訂單後<span>無法修改</span>，僅能刪除，不便之處還請見諒～
+        </p>
+      </ul>
+    </div>
+  )
+
+  // items
   let itemsContainer = null
   if (items?.length) {
     itemsContainer = (
@@ -100,7 +122,7 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
                 <p className={style.price}>{item.price}</p>
                 <p className={style.stock}>
                   {item.amount ? (
-                    <span className={style.inStock}>還有貨</span>
+                    <span className={style.inStock}>有貨</span>
                   ) : (
                     <span className={style.soldOut}>已售出，請刪除物件</span>
                   )}
@@ -159,6 +181,7 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
       <div className='RWD-container'>
         <div className='background'>
           <div className={style.cartPage}>
+            {info}
             {itemsContainer}
             {checkoutContainer}
           </div>
