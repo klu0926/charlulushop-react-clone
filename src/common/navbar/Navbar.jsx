@@ -1,4 +1,5 @@
 import style from './navbar.module.scss'
+import url from '../../data/url'
 
 function Navbar({ cartItemsId }) {
   const itemsPageUrl = '/items'
@@ -10,7 +11,7 @@ function Navbar({ cartItemsId }) {
       <div className='RWD-container'>
         <div className={style.navbarContainer}>
           <a className={style.logoContainer} href={itemsPageUrl}>
-            <img className={style.logo} src='/images/cry.png' alt='logo' />
+            <img className={style.logo} src={`${url.client}/images/cry.png`} alt='logo' />
             <span className={style.logoText}>斷。捨。離</span>
           </a>
           <div className={style.links}>
