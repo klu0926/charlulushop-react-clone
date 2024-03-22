@@ -1,4 +1,10 @@
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
+import {
+  BrowserRouter,
+  HashRouter,
+  Route,
+  Routes,
+  Navigate,
+} from 'react-router-dom'
 import './App.css'
 import ItemPage from './pages/itemPage/ItemPage.jsx'
 import ItemsPage from './pages/itemsPage/ItemsPage.jsx'
@@ -15,19 +21,18 @@ function App() {
   const { cartItemsId, addCartItem, removeCartItem, clearAllCartItems } =
     useCart()
 
-  const root = url.client
-  const itemsPageUrl = url.client + '/items'
-  const itemPageUrl = url.client + '/items/:itemId'
-  const ordersPageUrl = url.client + '/orders'
-  const cartPageUrl = url.client + '/cart'
+  const itemsPageUrl = '/items'
+  const itemPageUrl = '/items/:itemId'
+  const ordersPageUrl = '/orders'
+  const cartPageUrl =  '/cart'
 
   return (
     <>
       <Navbar cartItemsId={cartItemsId}></Navbar>
-      <BrowserRouter>
+      <HashRouter>
         <div className='routers'>
           <Routes>
-            <Route path={root} element={<Navigate to={itemsPageUrl} />}></Route>
+            <Route path='/' element={<Navigate to={itemPageUrl} />}></Route>
             <Route
               path={itemPageUrl}
               element={
@@ -52,7 +57,7 @@ function App() {
             <Route path={ordersPageUrl} element={<OrdersPage />}></Route>
           </Routes>
         </div>
-      </BrowserRouter>
+      </HashRouter>
       <Footer></Footer>
     </>
   )

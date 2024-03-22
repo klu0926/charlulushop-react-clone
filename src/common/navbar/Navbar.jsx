@@ -2,9 +2,9 @@ import style from './navbar.module.scss'
 import url from '../../data/url'
 
 function Navbar({ cartItemsId }) {
-  const itemsPageUrl = url.client + '/items'
-  const cartPageUrl = url.client + '/cart'
-  const orderPageUrl = url.client + '/orders'
+  const itemsPageUrl = url.client + '/#/items'
+  const cartPageUrl = url.client + '/#/cart'
+  const orderPageUrl = url.client + '/#/orders'
 
   return (
     <div className={style.navbar}>
