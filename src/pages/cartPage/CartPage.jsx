@@ -95,7 +95,7 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
       <span className={style.infoTitle}>* 下單小提醒 *</span>
       <ul>
         <p className='info'>
-          -請填寫<span>正確</span>的姓名、郵件跟IG帳號，以便
+          -請填寫<span>正確</span>的姓名、電子信箱跟IG帳號，以便
           <span>查詢訂單</span>
         </p>
         <p className='info'>
@@ -111,7 +111,7 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
           ，以便安排出貨
         </p>
         <p className='info'>
-          -訂單後<span>無法修改</span>，僅能刪除，不便之處還請見諒～
+          -下單後<span>無法修改</span>，只能聯絡夏洛特取消訂單
         </p>
       </ul>
     </div>

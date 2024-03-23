@@ -124,7 +124,7 @@ function OrderPage() {
               <h2 className={style.orderInoTitle}>訂單查詢</h2>
               <div className={style.orderInfo}>
                 <p className='info'>
-                  請使用<span> 名稱 </span>跟<span> 信箱 </span>來查詢您的訂單
+                  請使用<span> 名稱 </span>跟<span> 電子信箱 </span>來查詢您的訂單
                 </p>
 
                 <p>如果需要刪除訂單請私訊IG夏洛特</p>
