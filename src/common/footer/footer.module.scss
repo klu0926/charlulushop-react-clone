@@ -16,10 +16,13 @@
     margin-top: 15px;
     gap: 15px;
     .mediaIcon {
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
       color: white;
       filter: invert(100%);
+      &:hover {
+        transform: scale(1.05) rotate(15deg);
+      }
     }
   }
 }

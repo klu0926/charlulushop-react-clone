@@ -126,11 +126,12 @@ function OrderPage() {
                 <p className='info'>
                   請使用<span> 名稱 </span>跟<span> 信箱 </span>來查詢您的訂單
                 </p>
-                <p>如果需要修改或是刪除訂單請聯絡夏洛特</p>
+
+                <p>如果需要刪除訂單請私訊IG夏洛特</p>
                 <p>
                   IG帳號:{' '}
                   <a
-                    className='text-link'
+                    className='underline'
                     href='https://www.instagram.com/charlotte_journalday/'
                     target='_blank'>
                     charlotte_journalday

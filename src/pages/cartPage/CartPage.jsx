@@ -99,7 +99,15 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
           <span>查詢訂單</span>
         </p>
         <p className='info'>
-          -下單後請<span>聯絡夏洛特</span>
+          -下單後請私訊
+          <span>
+            <a
+              className='underline'
+              href='https://instagram.com/charlotte_journalday'
+              target='_blank'>
+              夏洛特的IG
+            </a>
+          </span>
           ，以便安排出貨
         </p>
         <p className='info'>

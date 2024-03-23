@@ -37,7 +37,11 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--primary);
+  color: var(--secondary);
+}
+
+a:hover {
+  color: var(--secondary-light);
 }
 
 ul {
@@ -80,6 +84,10 @@ button:hover {
 
 .info span {
   color: var(--primary);
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 .page {
