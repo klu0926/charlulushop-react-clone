@@ -5,7 +5,8 @@ const tagsUrl = url.server + '/tags'
 function useFetchTags() {
   const [currentTagName, setCurrentTagName] = useState(null)
   const [tags, setTags] = useState(null)
-  const [error, setError] = useState(null)
+  const [isError, setError] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     // abort controller
@@ -14,6 +15,8 @@ function useFetchTags() {
     // fetch
     async function fetchTags() {
       try {
+        setError(null)
+        setIsLoading(true)
         const response = await fetch(tagsUrl, {
           signal: abortController.signal,
         })
@@ -28,6 +31,8 @@ function useFetchTags() {
         setTags(json.data)
       } catch (err) {
         setError(err.message)
+      } finally {
+        setIsLoading(false)
       }
     }
     fetchTags()
@@ -38,7 +43,7 @@ function useFetchTags() {
     }
   }, [])
 
-  return { tags, error, currentTagName, setCurrentTagName }
+  return { tags, isLoading, isError, currentTagName, setCurrentTagName }
 }
 
 export default useFetchTags

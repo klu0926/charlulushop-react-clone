@@ -2,11 +2,11 @@ import style from './cartPage.module.scss'
 import url from '../../data/url'
 import useFetchCartItems from '../../hooks/useFetchCartItems'
 import sweetAlert from '../../helpers/sweetAlert'
-import { useState } from 'react'
+import LoadingIcon from '../../common/loadingIcon/LoadingIcon'
+import { useEffect } from 'react'
 
 function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
-  const [isLoading, setIsLoading] = useState(false)
-  const { items, fetchCartItemsError } = useFetchCartItems(cartItemsId)
+  const { items, isLoading, isError } = useFetchCartItems(cartItemsId)
 
   const imageUrl = url.server + '/images/'
   const orderUrl = url.server + '/orders/'
@@ -30,6 +30,11 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
       clearAllCartItems()
     }
   }
+
+  // 把頁面往上拉
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   async function handleCheckout() {
     try {
@@ -104,9 +109,27 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
     </div>
   )
 
-  // items
+  // 內容
   let itemsContainer = null
-  if (items?.length) {
+  if (isLoading) {
+    itemsContainer = (
+      <div className={style.placeholder}>
+        <LoadingIcon />
+      </div>
+    )
+  } else if (isError) {
+    itemsContainer = (
+      <div className={style.placeholder}>
+        <p>{isError}</p>
+      </div>
+    )
+  } else if (items && items.length === 0) {
+    itemsContainer = (
+      <div className={style.placeholder}>
+        <p>目前沒有物件</p>
+      </div>
+    )
+  } else if (items && items.length !== 0) {
     itemsContainer = (
       <div className={style.itemsContainer}>
         {items.map((item) => {
@@ -140,18 +163,6 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
             </div>
           )
         })}
-      </div>
-    )
-  } else if (fetchCartItemsError) {
-    itemsContainer = (
-      <div className={style.placeholder}>
-        <p>{fetchCartItemsError}</p>
-      </div>
-    )
-  } else {
-    itemsContainer = (
-      <div className={style.placeholder}>
-        <p>目前沒有物件</p>
       </div>
     )
   }

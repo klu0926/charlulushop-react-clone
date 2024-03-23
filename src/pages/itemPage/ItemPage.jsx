@@ -2,12 +2,14 @@ import style from './itemPage.module.scss'
 import url from '../../data/url'
 import { useParams } from 'react-router-dom'
 import useFetchSingleItem from '../../hooks/useFetchSingleItem'
+import { useEffect } from 'react'
+import LoadingIcon from '../../common/loadingIcon/LoadingIcon'
 
 const imageUrl = url.server + '/images/' // /images/:imageId
 
 function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
   const { itemId } = useParams()
-  const { item, fetchSingleItemError, isLoading } = useFetchSingleItem(itemId)
+  const { item, isError, isLoading } = useFetchSingleItem(itemId)
 
   function handlePictureClick(e) {
     const coverImage = document.querySelector('#coverImage')
@@ -26,6 +28,11 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
     }
   }
 
+  // 把頁面往上拉
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   let status = 'available'
   if (item) {
     if (!item.amount) {
@@ -35,13 +42,24 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
     }
   }
 
-
   const imageCount = item?.images?.length || 0
 
-  // ! need to have away to check if item is already in cart
-
-  let content = null
-  if (item) {
+  // 內容
+  let content = ''
+  if (isLoading) {
+    content = (
+      <div className={style.placeholder}>
+        <p>Loading...</p>
+        <LoadingIcon />
+      </div>
+    )
+  } else if (isError) {
+    content = (
+      <div className={style.placeholder}>
+        <p> {isError}</p>
+      </div>
+    )
+  } else if (item) {
     content = (
       <div className={style.itemContainer}>
         <div className={style.itemImageContainer}>
@@ -103,14 +121,6 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
         </div>
       </div>
     )
-  } else if (fetchSingleItemError) {
-    content = (
-      <div className={style.placeholder}>
-        <p> {fetchSingleItemError}</p>
-      </div>
-    )
-  } else {
-    content = <div className={style.placeholder}></div>
   }
 
   return (

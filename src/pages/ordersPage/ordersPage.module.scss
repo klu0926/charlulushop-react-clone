@@ -4,7 +4,9 @@
   align-items: start;
   gap: 20px;
   width: 100%;
+  min-height: 400px;
   margin: 0 auto;
+
   .orderInoTitle {
     font-size: var(--large-font);
   }
@@ -123,6 +125,14 @@
       }
     }
   }
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--grey);
+  font-size: var(--min-font);
 }
 
 @media screen and (min-width: 900px) {

@@ -1,7 +1,18 @@
 import style from './search.module.scss'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-function Search({ onInput }) {
+function Search({ setSearch }) {
+  const [inputValue, setInputValue] = useState('')
+
+  useEffect(() => {
+    // 等0.5秒才會使用onInput來fetch資料
+    const timeOut = setTimeout(() => {
+      setSearch(inputValue)
+    }, 500)
+    // clear
+    return () => clearTimeout(timeOut)
+  }, [inputValue, setSearch])
+
   function handleReset() {
     const input = document.querySelector('#searchInput')
     if (input) {
@@ -9,10 +20,8 @@ function Search({ onInput }) {
     }
   }
 
-  function handleOnInput(e) {
-    if (onInput) {
-      onInput(e.target.value)
-    }
+  function handleInput(e) {
+    setInputValue(e.target.value)
   }
 
   return (
@@ -22,7 +31,7 @@ function Search({ onInput }) {
         className={style.searchInput}
         type='text'
         placeholder='找找看...'
-        onInput={handleOnInput}
+        onInput={handleInput}
       />
       <button className={style.reset} type='button' onClick={handleReset}>
         x

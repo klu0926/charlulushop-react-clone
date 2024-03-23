@@ -4,6 +4,7 @@ import url from '../data/url'
 function useFetchItems(tag, search) {
   const [items, setItems] = useState(null)
   const [fetchItemsError, setFetchItemsError] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   const queryTag = tag || ''
   const querySearch = search || ''
@@ -19,6 +20,7 @@ function useFetchItems(tag, search) {
     // fetch
     async function fetchItems() {
       try {
+        setIsLoading(true)
         setFetchItemsError(null)
 
         const response = await fetch(itemsUrl, {
@@ -32,8 +34,12 @@ function useFetchItems(tag, search) {
           throw new Error(json.err)
         }
         setItems(json.data)
+        setFetchItemsError(null)
       } catch (err) {
         setFetchItemsError(err.message)
+        setIsLoading(false)
+      } finally {
+        setIsLoading(false)
       }
     }
     fetchItems()
@@ -43,7 +49,7 @@ function useFetchItems(tag, search) {
       abortController.abort()
     }
   }, [itemsUrl])
-  return { items, fetchItemsError }
+  return { items, isLoading, fetchItemsError }
 }
 
 export default useFetchItems

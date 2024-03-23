@@ -2,9 +2,14 @@ import style from './ordersPage.module.scss'
 import useFetchOrders from '../../hooks/useFetchOrder'
 import sweetAlert from '../../helpers/sweetAlert'
 import url from '../../data/url'
+import LoadingIcon from '../../common/loadingIcon/LoadingIcon'
+import { useState, useEffect } from 'react'
 
 function OrderPage() {
-  const { orders, fetchOrders, fetchOrderError } = useFetchOrders()
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [isSearched, setIsSearched] = useState(false)
+  const { orders, isLoading, isError, fetchOrders } = useFetchOrders()
 
   const coverUrl = url.server + '/images/'
 
@@ -15,20 +20,54 @@ function OrderPage() {
       if (!name || !email) {
         throw new Error('請輸入名稱與信箱')
       }
+      setIsSearched(true)
       await fetchOrders(name, email)
     } catch (err) {
       await sweetAlert.error('查詢失敗', err.message)
     }
   }
 
+  function handleNameInput(e) {
+    setIsSearched(false)
+    setName(e.target.value)
+  }
+  function handleEmailInput(e) {
+    setIsSearched(false)
+    setEmail(e.target.value)
+  }
+
+  // 把頁面往上拉
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  // 內容
   let ordersContent = null
-  if (!orders || orders.length === 0) {
+  if (isLoading) {
     ordersContent = (
-      <div className={style.orderCount}>
-        <p>目前沒有訂單</p>
+      <div className={style.placeholder}>
+        <LoadingIcon />
       </div>
     )
-  } else {
+  } else if (isError) {
+    ordersContent = (
+      <div className={style.placeholder}>
+        <p>{isError.message}</p>
+      </div>
+    )
+  } else if (isSearched && orders && orders.length === 0) {
+    ordersContent = (
+      <div className={style.placeholder}>
+        <p>搜尋不到任何訂單</p>
+        <p className='info'>
+          名稱: <span>{name}</span>
+        </p>
+        <p className='info'>
+          信箱: <span>{email}</span>
+        </p>
+      </div>
+    )
+  } else if (isSearched && orders && orders.length !== 0) {
     ordersContent = (
       <>
         <div className={style.totalOrder}>
@@ -68,6 +107,12 @@ function OrderPage() {
         </div>
       </>
     )
+  } else {
+    ordersContent = (
+      <div className={style.orderCount}>
+        <p>～請輸入名稱與信箱查詢您的訂單～</p>
+      </div>
+    )
   }
 
   return (
@@ -95,11 +140,21 @@ function OrderPage() {
               <div className={style.search}>
                 <div className={style.inputGroup}>
                   <label htmlFor='name'>名稱: </label>
-                  <input id='name' type='text' placeholder='輸入名稱...' />
+                  <input
+                    id='name'
+                    type='text'
+                    placeholder='輸入名稱...'
+                    onInput={handleNameInput}
+                  />
                 </div>
                 <div className={style.inputGroup}>
                   <label htmlFor='email'>信箱: </label>
-                  <input id='email' type='email' placeholder='輸信箱...' />
+                  <input
+                    id='email'
+                    type='email'
+                    placeholder='輸信箱...'
+                    onInput={handleEmailInput}
+                  />
                 </div>
                 <button
                   id='searchButton'

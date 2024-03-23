@@ -5,11 +5,21 @@ import ItemCard from '../../common/itemCard/ItemCard'
 import TagsSlider from '../../common/tagsSlider/TagsSlider'
 import Search from '../../common/search/Search'
 import useSearch from '../../hooks/useSearch'
+import LoadingIcon from '../../common/loadingIcon/LoadingIcon'
 
 function ItemsPage({ cartItemsId }) {
   const { search, setSearch } = useSearch()
-  const { tags, currentTagName, setCurrentTagName } = useFetchTags()
-  const { items, fetchItemsError } = useFetchItems(currentTagName, search)
+  const {
+    tags,
+    isLoading: isTagLoading,
+    isError: isTagError,
+    currentTagName,
+    setCurrentTagName,
+  } = useFetchTags()
+  const { items, isLoading, fetchItemsError } = useFetchItems(
+    currentTagName,
+    search,
+  )
 
   function checkInCart(itemId) {
     if (itemId === undefined || !cartItemsId) return false
@@ -18,7 +28,29 @@ function ItemsPage({ cartItemsId }) {
 
   // 主內容
   let contains = null
-  if (items) {
+  if (isLoading) {
+    // show loading
+    contains = (
+      <div className={style.placeholder}>
+        <LoadingIcon />
+      </div>
+    )
+  } else if (fetchItemsError) {
+    // show error
+    contains = (
+      <div className={style.placeholder}>
+        <p>{fetchItemsError}</p>
+      </div>
+    )
+  } else if (items && items.length === 0) {
+    // no items
+    contains = (
+      <div className={style.placeholder}>
+        <p>目前沒有物件</p>
+      </div>
+    )
+  } else if (items && items.length !== 0) {
+    // has items
     contains = (
       <div className={style.gridContainer}>
         {items.map((item) => {
@@ -28,26 +60,19 @@ function ItemsPage({ cartItemsId }) {
         })}
       </div>
     )
-  } else if (fetchItemsError) {
-    contains = (
-      <div className={style.placeholder}>
-        <p>{fetchItemsError}</p>
-      </div>
-    )
-  } else {
-    contains = <div className={style.placeholder}></div>
   }
-
   // 回傳
   return (
     <div className='page'>
       <div className='RWD-container'>
         <div className='background'>
-          <Search onInput={setSearch} />
+          <Search setSearch={setSearch} />
           <TagsSlider
             tags={tags}
             currentTagName={currentTagName}
             setCurrentTagName={setCurrentTagName}
+            isLoading={isTagLoading}
+            isError={isTagError}
           />
           {contains}
         </div>

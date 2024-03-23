@@ -3,18 +3,19 @@ import url from '../data/url'
 
 function useFetchOrders() {
   const [orders, setOrders] = useState(null)
-  const [fetchOrderError, setFetchOrderError] = useState(null)
+  const [isError, setIsError] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   // fetch
   async function fetchOrders(buyerName, buyerEmail) {
     try {
+      setIsError(false)
+      setIsLoading(true)
+
       if (!buyerName || !buyerEmail) throw new Error('Missing name or email')
 
       let ordersUrl = url.server + '/orders/buyer/'
       ordersUrl += '?buyerName=' + buyerName + '&' + 'buyerEmail=' + buyerEmail
-
-      // reset error
-      setFetchOrderError(null)
 
       const response = await fetch(ordersUrl)
       if (!response.ok) throw new Error(response.statusText)
@@ -22,12 +23,15 @@ function useFetchOrders() {
       if (!json.ok) throw new Error(json.err)
 
       setOrders(json.data)
+      setIsError(null)
     } catch (err) {
-      setFetchOrderError(err.message)
+      setIsError(err.message)
+    } finally {
+      setIsLoading(false)
     }
   }
 
-  return { orders, fetchOrders, fetchOrderError }
+  return { orders, isLoading, isError, fetchOrders }
 }
 
 export default useFetchOrders

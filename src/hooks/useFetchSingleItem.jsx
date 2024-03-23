@@ -3,8 +3,8 @@ import url from '../data/url'
 
 function useFetchSingleItem(id) {
   const [item, setItem] = useState(null)
-  const [fetchSingleItemError, setFetchSingleItemError] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
+  const [isError, setIsError] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   // url
   const itemUrl = url.server + '/items/' + id
@@ -16,6 +16,9 @@ function useFetchSingleItem(id) {
 
     async function fetchItem(id) {
       try {
+        setIsLoading(true)
+        setIsError(null)
+
         const response = await fetch(itemUrl, {
           signal: abortController.signal,
         })
@@ -28,9 +31,8 @@ function useFetchSingleItem(id) {
         }
 
         setItem(json.data)
-        setFetchSingleItemError(null)
       } catch (err) {
-        setFetchSingleItemError(err.message)
+        setIsError(err.message)
       } finally {
         setIsLoading(false)
       }
@@ -43,7 +45,7 @@ function useFetchSingleItem(id) {
     }
   }, [itemUrl])
 
-  return { item, fetchSingleItemError, isLoading }
+  return { item, fetchSingleItemError: isError, isLoading }
 }
 
 export default useFetchSingleItem
