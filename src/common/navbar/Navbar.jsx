@@ -8,17 +8,27 @@ const itemsPageUrl = url.client + '/#/items'
 const cartPageUrl = url.client + '/#/cart'
 const orderPageUrl = url.client + '/#/orders'
 
+import { useState } from 'react'
+
 function Hamburger() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  let panelClass = style.burgerPanel
+  if (isOpen) {
+    panelClass = panelClass + ' ' + style.active
+  }
+
   function handleOpen(e) {
     const panel = document.querySelector('#burger-panel')
     if (panel) {
+      setIsOpen(true)
       panel.style.display = 'block'
     }
   }
-
   function handleClose() {
     const panel = document.querySelector('#burger-panel')
     if (panel) {
+      setIsOpen(false)
       panel.style.display = 'none'
     }
   }
@@ -36,7 +46,7 @@ function Hamburger() {
         <div className={style.burgerLink}></div>
         <div className={style.burgerLink}></div>
       </div>
-      <div id='burger-panel' className={style.burgerPanel}>
+      <div id='burger-panel' className={panelClass}>
         <div
           className={style.burgerClose}
           id='burgerClose'

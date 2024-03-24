@@ -38,10 +38,10 @@
 .logoContainer {
   display: flex;
   border: 2px solid white;
-  padding: 2px;
-  padding-left: 4px;
+  padding: 1px;
+  padding-left: 5px;
   border-radius: 2px;
-  width: 135.5px;
+  width: 130px;
   .logoLink {
     display: flex;
     flex-direction: row;
@@ -72,7 +72,7 @@
     display: inline;
     padding: 0px 5px;
     margin: 0;
-    font-size: 0.91em;
+    font-size: 0.85em;
     line-height: 0.9rem;
     letter-spacing: 1px;
   }
@@ -157,13 +157,15 @@
 .burgerPanel {
   position: absolute;
   display: none;
-  top: 0;
+  top: -10px;
   background-color: white;
   color: black;
   box-shadow: 2px 2px 4px var(--shadow);
-  padding: 15px;
-  padding-bottom: 5px;
+  padding: 40px 10px 5px 15px;
   z-index: 101;
+  &.active {
+    animation: dropDown 0.5s ease-in-out forwards;
+  }
   .burgerClose {
     display: flex;
     justify-content: center;
@@ -184,6 +186,7 @@
     gap: 0.6rem;
     padding: 10px 5px;
     margin: 15px 0px;
+    margin-bottom: 0px;
     min-width: 100px;
     border-top: 1px solid var(--border);
     .burgerLink {
@@ -194,6 +197,23 @@
         color: var(--primary);
       }
     }
+  }
+}
+
+@keyframes dropDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(2%);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-0.5%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
