@@ -4,7 +4,6 @@
   padding: 4px 10px;
   border-radius: 12px;
   width: 100%;
-  max-width: 300px;
   background-color: white;
   margin: 0 auto;
 
@@ -26,5 +25,12 @@
     &:hover {
       color: var(--primary);
     }
+  }
+}
+
+
+@media screen and (min-width: 600px) {
+  .searchContainer{
+    max-width: 400px;
   }
 }

@@ -1,3 +1,64 @@
+// skeleton
+.skeletonCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  border-radius: 5px;
+  border: 1px solid var(--light);
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0.2px 0.2px 3px var(--shadow);
+  text-decoration: none;
+  padding: 0;
+  width: 95%;
+  overflow: hidden;
+  .skeletonImageContainer {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: var(--skeleton);
+    animation: var(--skeleton-fade);
+  }
+  .skeletonInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px;
+    padding-top: 6px;
+    width: 100%;
+  }
+  .skeletonName {
+    display: inline-block;
+    height: 1.05rem;
+    width: 100px;
+    border-radius: 7px;
+    background-color: var(--skeleton);
+    animation: var(--skeleton-fade);
+  }
+  .skeletonPriceDiv {
+    display: flex;
+    justify-content: space-between;
+  }
+  .skeletonPrice {
+    display: inline-block;
+    height: 0.95rem;
+    width: 20%;
+    border-radius: 7px;
+    background-color: var(--skeleton);
+    animation: var(--skeleton-fade);
+  }
+  .skeletonStock {
+    display: inline-block;
+    height: 0.95rem;
+    width: 15%;
+    border-radius: 7px;
+    background-color: var(--skeleton);
+    animation: var(--skeleton-fade);
+  }
+}
+
+// item card
 .itemCard {
   position: relative;
   display: flex;
@@ -14,23 +75,35 @@
   overflow: hidden;
   cursor: pointer;
   &.inCart {
-    border: 3px solid var(--primary);
+    border: 3px solid var(--primary-light);
   }
   &:hover {
     transform: scale(1.02) translateY(-1%);
     box-shadow: 1px 3px 5px var(--shadow);
   }
+  .itemImageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: var(--skeleton);
+    animation: var(--skeleton-fade);
+  }
   .itemImage {
     width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
+    aspect-ratio: 1/1;
+    opacity: 0%;
+    transition: opacity 0.3s ease-in-out;
   }
   .itemInfoDiv {
     width: 100%;
     padding: 5px;
     bottom: 0;
     left: 0;
+    background-color: white;
+    opacity: 0%;
+    transition: opacity 0.3s ease-in-out;
     .itemName {
       display: inline-block;
       text-overflow: ellipsis;
@@ -52,7 +125,7 @@
         &::before {
           content: '$';
           margin-right: 3px;
-          font-size: var(--min-font)
+          font-size: var(--min-font);
         }
       }
       .itemStock {

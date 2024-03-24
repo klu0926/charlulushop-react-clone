@@ -31,6 +31,10 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
     }
   }
 
+  function handleImageOnload(e) {
+    e.target.style.opacity = '100%'
+  }
+
   // 把頁面往上拉
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -148,7 +152,14 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
               className={
                 item.amount ? style.item : `${style.item} ${style.sold}`
               }>
-              <img src={coverUrl} alt='cover' className={style.itemImage} />
+              <div className={style.itemImageContainer}>
+                <img
+                  src={coverUrl}
+                  alt='cover'
+                  className={style.itemImage}
+                  onLoad={handleImageOnload}
+                />
+              </div>
               <div className={style.itemInfo}>
                 <p className={style.name}>{item.name}</p>
                 <p className={style.price}>{item.price}</p>

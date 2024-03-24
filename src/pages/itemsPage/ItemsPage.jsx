@@ -1,11 +1,11 @@
 import style from './itemsPage.module.scss'
 import useFetchItems from '../../hooks/useFetchItems'
 import useFetchTags from '../../hooks/useFetchTags'
-import ItemCard from '../../common/itemCard/ItemCard'
+import { ItemCard, ItemCardSkeleton } from '../../common/itemCard/ItemCard'
 import TagsSlider from '../../common/tagsSlider/TagsSlider'
 import Search from '../../common/search/Search'
 import useSearch from '../../hooks/useSearch'
-import LoadingIcon from '../../common/loadingIcon/LoadingIcon'
+import { useEffect } from 'react'
 
 function ItemsPage({ cartItemsId }) {
   const { search, setSearch } = useSearch()
@@ -31,8 +31,10 @@ function ItemsPage({ cartItemsId }) {
   if (isLoading) {
     // show loading
     contains = (
-      <div className={style.placeholder}>
-        <LoadingIcon />
+      <div className={style.gridContainer}>
+        {Array.from({length: 12}).map((_, index) => {
+          return <ItemCardSkeleton key={`itemCart-skeleton-${index}`} />
+        })}
       </div>
     )
   } else if (fetchItemsError) {

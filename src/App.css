@@ -29,6 +29,12 @@
   --grey: rgb(150, 150, 150);
   --grey-light: rgb(222, 222, 222);
   --body: rgb(228, 228, 228);
+  --skeleton: rgb(220, 220, 220);
+  --skeleton-light: rgb(237, 237, 237);
+
+  /* animation */
+  --skeleton-fade: skeleton-fade 1s linear infinite alternate;
+  --fadeIn: fadeIn 1s ease-in forwards;
 }
 
 body {
@@ -152,6 +158,7 @@ button:hover {
   box-shadow: none !important;
 }
 
+/* animation */
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -160,6 +167,17 @@ button:hover {
     transform: rotate(360deg);
   }
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+/* media */
 
 @media screen and (min-width: 600px) {
   :root {

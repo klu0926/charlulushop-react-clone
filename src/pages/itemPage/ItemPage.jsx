@@ -28,6 +28,10 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
     }
   }
 
+  function handleImageOnload(e) {
+    e.target.style.opacity = '100%'
+  }
+
   // 把頁面往上拉
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -49,7 +53,6 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
   if (isLoading) {
     content = (
       <div className={style.placeholder}>
-        <p>Loading...</p>
         <LoadingIcon />
       </div>
     )
@@ -62,22 +65,30 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
   } else if (item) {
     content = (
       <div className={style.itemContainer}>
-        <div className={style.itemImageContainer}>
-          <img
-            id='coverImage'
-            className={style.itemCover}
-            src={imageUrl + item.cover.id}
-            alt='cover'
-          />
+        <div className={style.itemImageGroupContainer}>
+          <div className={style.itemCoverContainer}>
+            <img
+              id='coverImage'
+              className={style.itemCover}
+              src={imageUrl + item.cover.id}
+              alt='cover'
+              onLoad={handleImageOnload}
+            />
+          </div>
+
           <div className={style.pictureSlider}>
             {item.images.map((i) => (
-              <img
-                key={i.id}
-                className={style.itemPicture}
-                src={imageUrl + i.id}
-                alt='picture'
-                onClick={handlePictureClick}
-              />
+              <div
+                key={`item-picture-${i.id}`}
+                className={style.itemPictureContainer}>
+                <img
+                  className={style.itemPicture}
+                  src={imageUrl + i.id}
+                  alt='picture'
+                  onClick={handlePictureClick}
+                  onLoad={handleImageOnload}
+                />
+              </div>
             ))}
           </div>
           <span className={style.pictureCount}>照片&#40;{imageCount}&#41;</span>

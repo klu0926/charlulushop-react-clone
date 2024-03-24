@@ -4,7 +4,7 @@
   width: 100%;
 
   /*images container*/
-  .itemImageContainer {
+  .itemImageGroupContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,14 +13,23 @@
     width: 100%;
     padding: 10px;
     overflow: hidden;
-    .pictureCount{
+    .pictureCount {
       color: var(--grey);
       font-size: var(--min-font);
     }
-    .itemCover {
+    .itemCoverContainer {
       width: 100%;
-      max-width: 450px;
-      border-radius: 6px;
+      aspect-ratio: 1/1;
+      background-color: var(--skeleton);
+      animation: var(--skeleton-fade);
+      overflow: hidden;
+      border-radius: 5px;
+    }
+    .itemCover {
+      width: 101%;
+      aspect-ratio: 1/1;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
     }
     .pictureSlider {
       display: flex;
@@ -31,12 +40,19 @@
       overflow: hidden;
       overflow-x: auto;
       white-space: nowrap;
-
-      .itemPicture {
-        border-radius: 5px;
+      .itemPictureContainer {
         height: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 5px;
+        overflow: hidden;
+        background-color: var(--skeleton);
+        animation: var(--skeleton-fade);
+      }
+      .itemPicture {
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
         cursor: pointer;
-
         &:hover {
           border: 1px solid var(--primary);
         }

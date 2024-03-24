@@ -26,13 +26,13 @@ function TagsSlider({
   }
   // 內容
   let tagsContent = ''
+  // skeleton
+  const tagsSkeleton = Array.from({ length: 18 }).map((_, index) => (
+    <span key={`skeleton-${index}`} className={style.skeletonTag}></span>
+  ))
 
   if (isLoading) {
-    tagsContent = (
-      <span>
-        <LoadingIcon />
-      </span>
-    )
+    tagsContent = tagsSkeleton
   } else if (isError) {
     tagsContent = <span>{isError.message}</span>
   } else if (tags) {
