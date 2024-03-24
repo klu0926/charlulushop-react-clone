@@ -157,11 +157,11 @@
 .burgerPanel {
   position: absolute;
   display: none;
-  top: -10px;
+  top: -8px;
   background-color: white;
   color: black;
   box-shadow: 2px 2px 4px var(--shadow);
-  padding: 40px 10px 5px 15px;
+  padding: 30px 10px 5px 15px;
   z-index: 101;
   &.active {
     animation: dropDown 0.5s ease-in-out forwards;
@@ -170,8 +170,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1rem;
-    height: 1rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-bottom: 20px;
     cursor: pointer;
     &:hover {
       color: var(--primary);
