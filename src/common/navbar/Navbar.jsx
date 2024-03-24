@@ -1,6 +1,6 @@
 import style from './navbar.module.scss'
 import url from '../../data/url'
-import { useEffect, useCallback } from 'react'
+import closeIcon from '../../images/close.png'
 
 const itemsPageUrl = url.client + '/#/items'
 const cartPageUrl = url.client + '/#/cart'
@@ -39,7 +39,7 @@ function Hamburger() {
           className={style.burgerClose}
           id='burgerClose'
           onClick={handleClose}>
-          X
+          <img className={style.burgerCloseImg} src={closeIcon} alt='close' />
         </div>
         <div className={style.burgerLinks}>
           <a

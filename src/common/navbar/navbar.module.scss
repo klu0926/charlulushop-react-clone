@@ -133,20 +133,21 @@
   background-color: white;
   color: black;
   box-shadow: 2px 2px 4px var(--shadow);
-  padding: 13px;
+  padding: 15px;
   padding-bottom: 5px;
   z-index: 101;
   .burgerClose {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1.5rem;
-    height: 1.5rem;
-    font-size: 1.2rem;
-    font-weight: bold;
+    width: 1rem;
+    height: 1rem;
     cursor: pointer;
     &:hover {
       color: var(--primary);
+    }
+    .burgerCloseImg {
+      width: 100%;
     }
   }
   .burgerLinks {
@@ -154,7 +155,7 @@
     flex-direction: column;
     gap: 0.6rem;
     padding: 10px 5px;
-    margin: 6px 0px;
+    margin: 15px 0px;
     min-width: 100px;
     border-top: 1px solid var(--border);
     .burgerLink {
@@ -169,14 +170,13 @@
 }
 
 @media screen and (min-width: 768px) {
-  .logoContainer{
+  .logoContainer {
     display: block;
   }
-  .burgerContainer{
+  .burgerContainer {
     display: none;
   }
-  .links{
+  .links {
     display: flex;
   }
 }
-
