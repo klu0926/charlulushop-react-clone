@@ -7,20 +7,40 @@ function Footer() {
       <div className='RWD-container'>
         <span>CharluluStory 斷。捨。離</span>
         <div className={style.mediaContainer}>
-          <a href='https://instagram.com/charlotte_journalday' target='_blank'>
+          <p className={style.linkP}>
             <img
               className={style.mediaIcon}
               src={`${url.client}/images/ig.png`}
               alt='ig'
             />
-          </a>
-          <a href='https://www.youtube.com/@CharluluStory' target='_black'>
+            <a
+              className={style.footerLink}
+              href='https://instagram.com/charlotte_journalday'
+              target='_blank'>
+              charlotte_journalday
+            </a>
+          </p>
+          <p className={style.linkP}>
             <img
               className={style.mediaIcon}
               src={`${url.client}/images/youtube.png`}
               alt='youtube'
             />
-          </a>
+            <span>Charlulu Story</span>
+            <a
+              className={style.footerLink}
+              href='https://www.youtube.com/@CharluluStory'
+              target='_black'>
+              web
+            </a>
+            <span>|</span>
+            <a
+              className={style.footerLink}
+              href='https://m.youtube.com/@CharluluStory'
+              target='_black'>
+              mobile
+            </a>
+          </p>
         </div>
       </div>
     </div>
