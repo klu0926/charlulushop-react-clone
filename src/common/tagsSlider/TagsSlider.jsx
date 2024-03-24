@@ -27,7 +27,7 @@ function TagsSlider({
   // 內容
   let tagsContent = ''
   // skeleton
-  const tagsSkeleton = Array.from({ length: 18 }).map((_, index) => (
+  const tagsSkeleton = Array.from({ length: 9 }).map((_, index) => (
     <span key={`skeleton-${index}`} className={style.skeletonTag}></span>
   ))
 
