@@ -1,6 +1,8 @@
 import style from './navbar.module.scss'
 import url from '../../data/url'
 import closeIcon from '../../images/close.png'
+import cryIcon from '../../images/cry-144.png'
+import cartIcon from '../../images/cart.png'
 
 const itemsPageUrl = url.client + '/#/items'
 const cartPageUrl = url.client + '/#/cart'
@@ -71,13 +73,12 @@ function LogoContainer() {
     <div className={style.logoContainer}>
       <a className={style.logoLink} href={itemsPageUrl}>
         <div className={style.logoDiv}>
-          <img
-            className={style.logo}
-            src={`${url.client}/images/cry.png`}
-            alt='logo'
-          />
+          <img className={style.logo} src={cryIcon} alt='logo' />
         </div>
-        <span className={style.logoText}>斷。捨。離</span>
+        <div className={style.logoTextContainer}>
+          <span className={style.logoText}>Charlulu's</span>
+          <span className={style.logoText}>斷。捨。離</span>
+        </div>
       </a>
     </div>
   )
@@ -105,11 +106,7 @@ function Cart({ cartItemsId }) {
   }
   return (
     <a className={style.cart} href={cartPageUrl} onClick={closeMenuPanel}>
-      <img
-        className={style.cartIcon}
-        src={`${url.client}/images/cart.png`}
-        alt='cart'
-      />
+      <img className={style.cartIcon} src={cartIcon} alt='cart' />
       {cartItemsId && (
         <div className={style.cartCount}>
           {cartItemsId ? cartItemsId.length : 0}
@@ -124,11 +121,13 @@ function Navbar({ cartItemsId }) {
     <div className={style.navbar}>
       <div className='RWD-container'>
         <div className={style.navbarContainer}>
-          <div className={style.side}>
+          <div className={style.sideLeft}>
             <Hamburger />
+          </div>
+          <div className={style.sideMiddle}>
             <LogoContainer />
           </div>
-          <div className={style.side}>
+          <div className={style.sideRight}>
             <Links />
             <Cart cartItemsId={cartItemsId} />
           </div>

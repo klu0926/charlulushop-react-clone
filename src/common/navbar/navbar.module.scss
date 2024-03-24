@@ -10,21 +10,38 @@
   box-shadow: 1px 3px 5px var(--shadow);
   z-index: 100;
   .navbarContainer {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 30% 1fr 30%;
+    align-items: center;
     width: 100%;
   }
 }
 
 // left and right size
-.side {
+.sideLeft {
   display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.sideRight {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.sideMiddle {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-// logo
+// logo on screen
 .logoContainer {
-  display: none;
+  display: flex;
+  border: 2px solid white;
+  padding: 2px;
+  padding-left: 4px;
+  border-radius: 2px;
+  width: 135.5px;
   .logoLink {
     display: flex;
     flex-direction: row;
@@ -38,16 +55,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 43px;
-    height: 42px;
+    width: 35px;
+    aspect-ratio: 1/1;
     .logo {
       width: 100%;
     }
+  }
+  .logoTextContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
   }
   .logoText {
     color: white;
     display: inline;
     padding: 0px 5px;
+    margin: 0;
+    font-size: 0.91em;
+    line-height: 0.9rem;
+    letter-spacing: 1px;
   }
 }
 
@@ -74,6 +101,7 @@
 .cart {
   position: relative;
   display: flex;
+  justify-content: end;
   padding: 3px 10px;
   border: 1px solid white;
   border-radius: 15px;
@@ -170,11 +198,16 @@
 }
 
 @media screen and (min-width: 768px) {
-  .logoContainer {
-    display: block;
+  .navbar {
+    .navbarContainer {
+      grid-template-columns: 1fr 1fr;
+    }
   }
-  .burgerContainer {
+  .sideLeft {
     display: none;
+  }
+  .sideMiddle {
+    justify-content: start;
   }
   .links {
     display: flex;

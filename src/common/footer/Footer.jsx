@@ -1,5 +1,6 @@
 import style from './footer.module.scss'
-import url from '../../data/url'
+import igIcon from '../../images/ig.png'
+import youtubeIcon from '../../images/youtube.png'
 
 function Footer() {
   return (
@@ -10,7 +11,7 @@ function Footer() {
           <p className={style.linkP}>
             <img
               className={style.mediaIcon}
-              src={`${url.client}/images/ig.png`}
+              src={igIcon}
               alt='ig'
             />
             <a
@@ -23,7 +24,7 @@ function Footer() {
           <p className={style.linkP}>
             <img
               className={style.mediaIcon}
-              src={`${url.client}/images/youtube.png`}
+              src={youtubeIcon}
               alt='youtube'
             />
             <span>Charlulu Story</span>
