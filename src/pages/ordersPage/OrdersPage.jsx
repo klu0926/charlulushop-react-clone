@@ -4,6 +4,7 @@ import sweetAlert from '../../helpers/sweetAlert'
 import url from '../../data/url'
 import LoadingIcon from '../../common/loadingIcon/LoadingIcon'
 import { useState, useEffect } from 'react'
+import sorryIcon from '../../images/sorry.png'
 
 function OrderPage() {
   const [name, setName] = useState('')
@@ -58,12 +59,15 @@ function OrderPage() {
   } else if (isSearched && orders && orders.length === 0) {
     ordersContent = (
       <div className={style.placeholder}>
-        <p>搜尋不到任何訂單</p>
+        <div className={style.noItemsContainer}>
+          <img src={sorryIcon} alt='sorr yicon' />
+          <span>找不到您的訂單</span>
+        </div>
         <p className='info'>
-          名稱: <span>{name}</span>
+          名稱 : <span>{name}</span>
         </p>
         <p className='info'>
-          信箱: <span>{email}</span>
+          信箱 : <span>{email}</span>
         </p>
       </div>
     )
@@ -140,7 +144,7 @@ function OrderPage() {
               </div>
               <div className={style.search}>
                 <div className={style.inputGroup}>
-                  <label htmlFor='name'>名稱: </label>
+                  <label htmlFor='name'>名稱 : </label>
                   <input
                     id='name'
                     type='text'
@@ -149,7 +153,7 @@ function OrderPage() {
                   />
                 </div>
                 <div className={style.inputGroup}>
-                  <label htmlFor='email'>信箱: </label>
+                  <label htmlFor='email'>信箱 : </label>
                   <input
                     id='email'
                     type='email'

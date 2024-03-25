@@ -12,6 +12,25 @@
   height: 100vh;
   color: var(--grey);
 }
+.noItemsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+  font-size: var(--min-font);
+  img{
+    width: 100%;
+  }
+  span {
+    display: inline-block;
+    padding: 1.5px 20px;
+    background-color: var(--border);
+    color: var(--grey-dark);
+    border-radius: 5px;
+  }
+}
 
 @media screen and (min-width: 600px) {
   .gridContainer {

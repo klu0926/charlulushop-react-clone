@@ -69,8 +69,31 @@
   min-height: 300px;
   color: var(--grey);
   padding: 10px;
-  font-size: var(--mid-font);
+  margin-top: 10px;
+  font-size: var(--min-font);
+  border-top: 1px solid var(--border);
 }
+.noItemsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+  font-size: var(--min-font);
+  img{
+    width: 100%;
+  }
+  span {
+    display: inline-block;
+    padding: 1.5px 20px;
+    background-color: var(--border);
+    color: var(--grey-dark);
+    margin-top: 15px;
+    border-radius: 5px;
+  }
+}
+
 
 .stock {
   .inStock {

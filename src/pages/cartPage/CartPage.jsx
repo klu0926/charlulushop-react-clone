@@ -4,6 +4,7 @@ import useFetchCartItems from '../../hooks/useFetchCartItems'
 import sweetAlert from '../../helpers/sweetAlert'
 import LoadingIcon from '../../common/loadingIcon/LoadingIcon'
 import { useEffect } from 'react'
+import sofaIcon from '../../images/sofa.png'
 
 function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
   const { items, isLoading, isError } = useFetchCartItems(cartItemsId)
@@ -138,7 +139,10 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
   } else if (items && items.length === 0) {
     itemsContainer = (
       <div className={style.placeholder}>
-        <p>目前沒有物件</p>
+        <div className={style.noItemsContainer}>
+          <img src={sofaIcon} alt="no items" />
+          <span>購物車內空空</span>
+          </div>
       </div>
     )
   } else if (items && items.length !== 0) {

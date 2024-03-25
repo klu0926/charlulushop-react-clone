@@ -5,7 +5,7 @@ import { ItemCard, ItemCardSkeleton } from '../../common/itemCard/ItemCard'
 import TagsSlider from '../../common/tagsSlider/TagsSlider'
 import Search from '../../common/search/Search'
 import useSearch from '../../hooks/useSearch'
-import { useEffect } from 'react'
+import dieIcon from '../../images/die.png'
 
 function ItemsPage({ cartItemsId }) {
   const { search, setSearch } = useSearch()
@@ -20,7 +20,6 @@ function ItemsPage({ cartItemsId }) {
     currentTagName,
     search,
   )
-
   function checkInCart(itemId) {
     if (itemId === undefined || !cartItemsId) return false
     return cartItemsId.some((i) => i === itemId)
@@ -32,7 +31,7 @@ function ItemsPage({ cartItemsId }) {
     // show loading
     contains = (
       <div className={style.gridContainer}>
-        {Array.from({length: 12}).map((_, index) => {
+        {Array.from({ length: 12 }).map((_, index) => {
           return <ItemCardSkeleton key={`itemCart-skeleton-${index}`} />
         })}
       </div>
@@ -48,7 +47,10 @@ function ItemsPage({ cartItemsId }) {
     // no items
     contains = (
       <div className={style.placeholder}>
-        <p>目前沒有物件</p>
+        <div className={style.noItemsContainer}>
+          <img src={dieIcon} alt='icon' />
+          <span>找不到東西...</span>
+        </div>
       </div>
     )
   } else if (items && items.length !== 0) {

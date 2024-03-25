@@ -137,6 +137,28 @@
   font-size: var(--min-font);
 }
 
+.noItemsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 160px;
+  font-size: var(--min-font);
+  margin-bottom: 5px;
+  img{
+    width: 100%;
+  }
+  span {
+    display: inline-block;
+    padding: 1.5px 20px;
+    background-color: var(--border);
+    color: var(--grey-dark);
+    margin-top: 15px;
+    border-radius: 5px;
+  }
+}
+
 @media screen and (min-width: 900px) {
   .orderPage {
     flex-direction: row;
