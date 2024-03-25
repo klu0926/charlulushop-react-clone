@@ -14,7 +14,6 @@
     flex-direction: column;
     gap: 10px;
     padding: 10px;
-
     .item {
       position: relative;
       display: grid;
@@ -22,7 +21,8 @@
       gap: 20px;
       border: 1px solid var(--border);
       border-radius: 4px;
-      padding: 5px;
+      padding: 5px 10px;
+      overflow: hidden;
       &.sold {
         background-color: gainsboro;
       }
@@ -68,6 +68,8 @@
   align-items: center;
   min-height: 300px;
   color: var(--grey);
+  padding: 10px;
+  font-size: var(--mid-font);
 }
 
 .stock {

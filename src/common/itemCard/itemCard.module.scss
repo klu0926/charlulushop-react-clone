@@ -75,7 +75,9 @@
   overflow: hidden;
   cursor: pointer;
   &.inCart {
-    border: 3px solid var(--primary-light);
+    .inCartIconContainer {
+      display: block;
+    }
   }
   &:hover {
     transform: scale(1.02) translateY(-1%);
@@ -136,6 +138,27 @@
   }
 }
 
+/* in cart icon*/
+.inCartIconContainer {
+  position: absolute;
+  display: none;
+  top: 5px;
+  right: 5px;
+  height: 1.6rem;
+  width: 1.6em;
+  padding: 4.5px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  z-index: 2;
+  .inCartIcon {
+    width: 90%;
+    height: 90%;
+    filter: invert(100%);
+    background-size: cover;
+  }
+}
+
+/* sold */
 .itemCard.soldout {
   user-select: none;
   cursor: auto !important;

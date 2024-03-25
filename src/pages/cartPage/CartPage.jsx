@@ -213,8 +213,8 @@ function CartPage({ cartItemsId, removeCartItem, clearAllCartItems }) {
         <div className='background'>
           <div className={style.cartPage}>
             {info}
-            {itemsContainer}
-            {checkoutContainer}
+              {itemsContainer}
+              {checkoutContainer}
           </div>
         </div>
       </div>

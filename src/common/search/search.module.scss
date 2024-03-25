@@ -13,13 +13,14 @@
     border: none;
     flex: 1;
     min-width: 50px;
+    font-size: var(--min-font);
   }
   .reset {
     appearance: none;
     border: none;
     background: none;
     color: var(--grey);
-    font-size: 1rem;
+    font-size: var(--min-font);
     box-shadow: none;
     cursor: pointer;
     &:hover {
@@ -28,9 +29,8 @@
   }
 }
 
-
 @media screen and (min-width: 600px) {
-  .searchContainer{
+  .searchContainer {
     max-width: 400px;
   }
 }

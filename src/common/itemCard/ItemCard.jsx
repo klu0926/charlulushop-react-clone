@@ -1,5 +1,6 @@
 import style from './itemCard.module.scss'
 import url from '../../data/url.js'
+import cartIcon from '../../images/cart.png'
 
 export function ItemCardSkeleton() {
   return (
@@ -23,6 +24,17 @@ export function ItemCard({ item, inCart }) {
   const itemUrl = url.client + `/#/items/${id}`
   // server cover image
   const coverUrl = url.server + `/images/${cover.id}`
+
+  // in card icon
+  function InCartIcon() {
+    return (
+      <div className={style.inCartIconContainer}>
+        <div
+          className={style.inCartIcon}
+          style={{ backgroundImage: `url(${cartIcon})` }}></div>
+      </div>
+    )
+  }
 
   // card class
   let itemCardClass = style.itemCard
@@ -49,6 +61,7 @@ export function ItemCard({ item, inCart }) {
   const renderElement =
     amount === 0 ? (
       <div className={itemCardClass}>
+        <InCartIcon />
         <div className={style.itemImageContainer}>
           <img
             className={style.itemImage}
@@ -68,6 +81,7 @@ export function ItemCard({ item, inCart }) {
       </div>
     ) : (
       <a className={itemCardClass} href={itemUrl}>
+        <InCartIcon />
         <div className={style.itemImageContainer}>
           <img
             className={style.itemImage}

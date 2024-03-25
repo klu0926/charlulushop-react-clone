@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   flex-wrap: nowrap;
-  width: 100%;
   margin: 5px 0px;
   margin-bottom: 20px;
   border-bottom: 1px solid var(--primary-light2);
@@ -10,7 +9,6 @@
   gap: 10px;
   overflow-x: auto;
   white-space: nowrap;
-
   .tag {
     display: inline-block;
     padding: 2px 5px;
@@ -36,11 +34,11 @@
   padding: 2px 5px;
   background: var(--skeleton);
   border-radius: 3px;
-  width: 87px;
+  min-width: 87px;
   height: 1.5rem;
   animation: var(--skeleton-fade);
   &:nth-child(even) {
-    width: 65px;
+    min-width: 65px;
   }
 }
 
