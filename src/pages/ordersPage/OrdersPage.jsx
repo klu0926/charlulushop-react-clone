@@ -46,8 +46,9 @@ function OrderPage() {
   let ordersContent = null
   if (isLoading) {
     ordersContent = (
-      <div className={style.placeholder}>
-        <LoadingIcon />
+      <div className={style.loadingHolder}>
+        <span className={style.loadingText}></span>
+        <div className={style.loadingBox}></div>
       </div>
     )
   } else if (isError) {
@@ -113,7 +114,7 @@ function OrderPage() {
     )
   } else {
     ordersContent = (
-      <div className={style.orderCount}>
+      <div className={style.placeholder}>
         <p>～請輸入名稱與信箱查詢您的訂單～</p>
       </div>
     )
@@ -124,25 +125,23 @@ function OrderPage() {
       <div className='RWD-container'>
         <div className='background'>
           <div className={style.orderPage}>
-            <div className={style.searchContainer}>
-              <h2 className={style.orderInoTitle}>訂單查詢</h2>
-              <div className={style.orderInfo}>
-                <p className='info'>
-                  請使用<span> 名稱 </span>跟<span> 電子信箱 </span>來查詢您的訂單
-                </p>
-
-                <p>如果需要刪除訂單請私訊IG夏洛特</p>
-                <p>
-                  IG帳號:{' '}
-                  <a
-                    className='underline'
-                    href='https://www.instagram.com/charlotte_journalday/'
-                    target='_blank'>
-                    charlotte_journalday
-                  </a>
-                </p>
+            <div className={style.leftBox}>
+              <div className={style.topContainer}>
+                <h2 className={style.orderInoTitle}>訂單查詢</h2>
+                <div className={style.orderInfo}>
+                  <p className='info'>
+                    請使用<span> 名稱 </span>跟<span> 電子信箱 </span>
+                    來查詢您的訂單，如果需要刪除訂單請私訊IG夏洛特<span> </span>
+                    <a
+                      className='underline'
+                      href='https://www.instagram.com/charlotte_journalday/'
+                      target='_blank'>
+                      charlotte_journalday
+                    </a>
+                  </p>
+                </div>
               </div>
-              <div className={style.search}>
+              <div className={style.searchContainer}>
                 <div className={style.inputGroup}>
                   <label htmlFor='name'>名稱 : </label>
                   <input
@@ -170,7 +169,7 @@ function OrderPage() {
                 </button>
               </div>
             </div>
-            <div className={style.orderDisplay}>{ordersContent}</div>
+            <div className={style.rightBox}>{ordersContent}</div>
           </div>
         </div>
       </div>

@@ -1,0 +1,212 @@
+.youtubeDiv {
+  width: 100%;
+  margin: 10px auto;
+  margin-top: 50px;
+}
+.tip {
+  display: inline-block;
+  padding: 2px 10px;
+  color: white;
+  background-color: var(--primary);
+  border-radius: 10px;
+  font-size: var(--min-font);
+}
+
+.videosContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  min-height: 200px;
+  gap: 10px;
+  margin: 20px auto;
+  margin-top: 10px;
+  padding-top: 30px;
+  border-top: 1px dashed var(--border);
+}
+
+.videoBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 0px;
+  width: 100%;
+  .infoTitle {
+    margin-bottom: 5px;
+    font-size: var(--mid-font);
+    color: var(--primary);
+    font-weight: 600;
+  }
+  .infoDes {
+    font-size: var(--min-font);
+    margin: 5px 0px;
+  }
+  .infoDate {
+    border-radius: 5px;
+    padding: 2px 5px;
+    font-size: var(--min-font);
+    background-color: var(--light);
+    color: white;
+  }
+}
+
+.iframe {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 560/315;
+}
+
+.videosDivContainers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 10px;
+}
+
+.videosImageHolder {
+  width: 120px;
+  aspect-ratio: 320/180;
+  cursor: pointer;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* skeleton */
+.skeletonContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px auto;
+  margin-top: 50px;
+  gap: 15px;
+}
+.skeletonImageDiv {
+  height: 260px;
+  width: 100%;
+  background-color: var(--skeleton);
+  animation: var(--skeleton-fade);
+}
+.skeletonInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.skeletonInfoTitle {
+  display: inline-block;
+  height: 1.5rem;
+  border-radius: 15px;
+  width: 90%;
+  background-color: var(--skeleton);
+  animation: var(--skeleton-fade);
+}
+.skeletonInfoTitle2 {
+  display: inline-block;
+  height: 1.5rem;
+  border-radius: 15px;
+  width: 45%;
+  background-color: var(--skeleton);
+  animation: var(--skeleton-fade);
+  margin-bottom: 10px;
+}
+.skeletonInfoDes {
+  display: inline-block;
+  height: 1rem;
+  border-radius: 15px;
+  width: 66%;
+  background-color: var(--skeleton);
+  animation: var(--skeleton-fade);
+  &:nth-of-type(5) {
+    width: 40% !important;
+    background-color: red;
+  }
+}
+
+.skeletonInfoDate {
+  display: inline-block;
+  height: 1.2rem;
+  border-radius: 15px;
+  width: 100px;
+  background-color: var(--skeleton);
+  animation: var(--skeleton-fade);
+  margin-top: 10px;
+}
+
+.SkeletonVideoDivContainers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 10px;
+  margin: 10px 0px;
+}
+
+.skeletonImageHolder {
+  width: 120px;
+  aspect-ratio: 320/180;
+  cursor: pointer;
+  background-color: var(--skeleton);
+  animation: var(--skeleton-fade);
+}
+
+/* error */
+.errorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  p {
+    color: var(--grey);
+    font-size: var(--min-font);
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .videosContainer {
+    flex-direction: row;
+  }
+  .title {
+    text-align: start;
+  }
+  .infoBox {
+    gap: 10px;
+    .infoTitle {
+      font-size: var(--large-font);
+    }
+    .infoDes {
+      font-size: var(--mid-font);
+    }
+    .infoDate {
+      font-size: var(--min-font);
+    }
+  }
+  .videosDivContainers {
+    justify-content: center;
+    gap: 15px;
+  }
+  .skeletonContainer {
+    flex-direction: row;
+  }
+  .SkeletonVideoDivContainers {
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .infoBox {
+    .infoTitle {
+      font-size: var(--mid-font);
+    }
+  }
+}

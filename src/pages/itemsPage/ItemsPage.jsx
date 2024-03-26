@@ -6,6 +6,7 @@ import TagsSlider from '../../common/tagsSlider/TagsSlider'
 import Search from '../../common/search/Search'
 import useSearch from '../../hooks/useSearch'
 import dieIcon from '../../images/die.png'
+import YoutubeDiv from '../../common/youtubeDiv/YoutubeDiv'
 
 function ItemsPage({ cartItemsId }) {
   const { search, setSearch } = useSearch()
@@ -79,6 +80,7 @@ function ItemsPage({ cartItemsId }) {
             isError={isTagError}
           />
           {contains}
+          <YoutubeDiv />
         </div>
       </div>
     </div>

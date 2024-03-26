@@ -26,8 +26,9 @@
   --border: rgb(213, 213, 213);
   --shadow: rgba(0, 0, 0, 0.256);
   --dark: rgb(41, 41, 41);
+  --light:rgb(190, 190, 190);
   --grey: rgb(150, 150, 150);
-  --grey-dark:rgb(90, 90, 90) ;
+  --grey-dark: rgb(90, 90, 90);
   --grey-light: rgb(222, 222, 222);
   --body: rgb(228, 228, 228);
   --skeleton: rgb(220, 220, 220);
