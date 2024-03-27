@@ -160,13 +160,38 @@
   position: absolute;
   display: none;
   top: -8px;
-  background-color: white;
+  left: 0;
   color: black;
-  box-shadow: 2px 2px 4px var(--shadow);
-  padding: 30px 10px 5px 15px;
   z-index: 101;
+  height: 102vh;
+  width: 102vh;
   &.active {
-    animation: dropDown 0.5s ease-in-out forwards;
+    .burgerPanelLeft {
+      animation: slideIn 0.3s ease-in-out 0s forwards;
+    }
+    .burgerPanelBackground {
+      opacity: 1;
+    }
+  }
+  .burgerPanelBackground {
+    background-color: rgba(255, 255, 255, 0.4);
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    overflow: hidden;
+  }
+  .burgerPanelLeft {
+    display: block;
+    padding: 30px 15px;
+    background-color: white;
+    height: 101vh;
+    width: 155px;
+    box-shadow: 1px 1px 3px var(--shadow);
+    z-index: 102;
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: slideOut 0.3s ease-in-out 0s forwards;
   }
   .burgerClose {
     display: flex;
@@ -188,14 +213,15 @@
     flex-direction: column;
     gap: 0.6rem;
     padding: 10px 5px;
-    margin: 15px 0px;
+    margin: 10px 0px;
     margin-bottom: 0px;
     min-width: 100px;
     border-top: 1px solid var(--border);
     .burgerLink {
       font-size: 1rem;
-      color: var(--dark);
+      color: var(--secondary);
       padding: 2px 5px;
+
       &:hover {
         color: var(--primary);
       }
@@ -203,20 +229,31 @@
   }
 }
 
-@keyframes dropDown {
+@keyframes slideIn {
   0% {
-    transform: translateY(-100%);
     opacity: 0;
+    transform: translate(-100%);
   }
   60% {
-    transform: translateY(2%);
-    opacity: 1;
-  }
-  80% {
-    transform: translateY(-0.5%);
+    opacity: 100%;
   }
   100% {
-    transform: translateY(0);
+    opacity: 100%;
+    transform: translate(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 100%;
+    transform: translate(0);
+  }
+  60% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 0%;
+    transform: translate(-100%);
   }
 }
 

@@ -10,13 +10,10 @@ const orderPageUrl = url.client + '/#/orders'
 
 import { useState } from 'react'
 
+// hamburger and burger panel
 function Hamburger() {
   const [isOpen, setIsOpen] = useState(false)
-
-  let panelClass = style.burgerPanel
-  if (isOpen) {
-    panelClass = panelClass + ' ' + style.active
-  }
+  console.log('isOpen: ', isOpen)
 
   function handleOpen(e) {
     const panel = document.querySelector('#burger-panel')
@@ -29,8 +26,16 @@ function Hamburger() {
     const panel = document.querySelector('#burger-panel')
     if (panel) {
       setIsOpen(false)
-      panel.style.display = 'none'
+      setTimeout(() => {
+        panel.style.display = 'none'
+      }, 500)
     }
+  }
+
+  // panel class
+  let panelClass = style.burgerPanel
+  if (isOpen) {
+    panelClass = panelClass + ' ' + style.active
   }
 
   return (
@@ -48,30 +53,36 @@ function Hamburger() {
       </div>
       <div id='burger-panel' className={panelClass}>
         <div
-          className={style.burgerClose}
-          id='burgerClose'
-          onClick={handleClose}>
-          <img className={style.burgerCloseImg} src={closeIcon} alt='close' />
-        </div>
-        <div className={style.burgerLinks}>
-          <a
-            className={style.burgerLink}
-            href={itemsPageUrl}
+          id='burger-panel-background'
+          className={style.burgerPanelBackground}
+          onClick={handleClose}></div>
+        <div id='burger-panel-left' className={style.burgerPanelLeft}>
+          <div
+            className={style.burgerClose}
+            id='burgerClose'
             onClick={handleClose}>
-            全部好貨
-          </a>
-          <a
-            className={style.burgerLink}
-            href={orderPageUrl}
-            onClick={handleClose}>
-            查詢訂單
-          </a>
-          <a
-            className={style.burgerLink}
-            href={cartPageUrl}
-            onClick={handleClose}>
-            購物車
-          </a>
+            <img className={style.burgerCloseImg} src={closeIcon} alt='close' />
+          </div>
+          <div className={style.burgerLinks}>
+            <a
+              className={style.burgerLink}
+              href={itemsPageUrl}
+              onClick={handleClose}>
+              全部好貨
+            </a>
+            <a
+              className={style.burgerLink}
+              href={orderPageUrl}
+              onClick={handleClose}>
+              查詢訂單
+            </a>
+            <a
+              className={style.burgerLink}
+              href={cartPageUrl}
+              onClick={handleClose}>
+              購物車
+            </a>
+          </div>
         </div>
       </div>
     </>
