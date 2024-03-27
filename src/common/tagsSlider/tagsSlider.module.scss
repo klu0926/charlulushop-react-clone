@@ -7,7 +7,7 @@
   white-space: nowrap;
   border-right: 2.5px solid var(--primary-light2);
   background-color: var(--primary-light3);
-  padding: 10px 8px;
+  padding: 5px 8px;
   border-radius: 10px 0px 0 10px;
   .tag {
     display: inline-block;
@@ -42,13 +42,12 @@
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
   .tagsSlider {
     flex-wrap: wrap;
     border-radius: 5px;
     border: none;
     padding: 10px;
     background-color: white;
-    border-radius: 0px;
   }
 }

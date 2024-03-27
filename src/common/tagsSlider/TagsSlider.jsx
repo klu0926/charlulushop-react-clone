@@ -1,4 +1,5 @@
 import style from './tagsSlider.module.scss'
+import { useState } from 'react'
 
 function TagsSlider({
   itemsTotal,
@@ -8,19 +9,24 @@ function TagsSlider({
   isLoading,
   isError,
 }) {
+  const [allItemsCount, setAllItemsCount] = useState(null)
+  if (!allItemsCount && itemsTotal !== 0){
+    setAllItemsCount(itemsTotal)
+  }
+
+
   function handleOnclick(tagName) {
     setCurrentTagName(tagName)
   }
-
   // [All] tag
-  function AllTag({ itemsTotal }) {
+  function AllTag({ allItemsCount }) {
     let allTagClass = style.tag
     if (!currentTagName) {
       allTagClass = allTagClass + ' ' + style.current
     }
     return (
       <span className={allTagClass} key='all' onClick={() => handleOnclick('')}>
-        全部 | {itemsTotal}
+        全部 | {allItemsCount}
       </span>
     )
   }
@@ -55,7 +61,7 @@ function TagsSlider({
 
   return (
     <div className={style.tagsSlider}>
-      <AllTag itemsTotal={itemsTotal} />
+      <AllTag allItemsCount={allItemsCount} />
       {tagsContent}
     </div>
   )

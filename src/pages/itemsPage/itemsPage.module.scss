@@ -57,7 +57,7 @@
 .sortToggle {
   padding: 3px 4px;
   border-radius: 14px;
-  width: 95px;
+  width: 72px;
   height: 29px;
   padding: 3px 7px;
   background-color: var(--secondary);
@@ -71,7 +71,7 @@
     background-color: var(--primary);
     &:after {
       float: right;
-      content: '庫存優先';
+      content: '庫存';
     }
     .sortCircle {
       float: left;
@@ -79,7 +79,7 @@
   }
   &::after {
     float: left;
-    content: '最新優先';
+    content: '最新';
     line-height: 19px;
     font-size: 0.85rem;
     color: white;
@@ -98,7 +98,8 @@
 /* TagsSortContainer */
 .tagsSortContainer {
   display: grid;
-  grid-template-columns: 1fr 105px;
+  grid-template-columns: auto auto;
+  gap: 10px;
   padding: 10px 0px;
   margin-bottom: 10px;
 }
@@ -127,9 +128,6 @@
   .sortToggle {
     margin-right: auto;
     margin-left: 0;
-  }
-  .tagsSortContainer {
-    grid-template-columns: 1fr 140px;
   }
 }
 

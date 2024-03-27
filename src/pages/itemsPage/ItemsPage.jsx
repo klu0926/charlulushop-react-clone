@@ -135,6 +135,7 @@ function ItemsPage({ cartItemsId }) {
           <Banner />
           <Search setSearch={setSearch} />
           <div className={style.tagsSortContainer}>
+            <SortToggle />
             <TagsSlider
               tags={tags}
               currentTagName={currentTagName}
@@ -143,7 +144,6 @@ function ItemsPage({ cartItemsId }) {
               isError={isTagError}
               itemsTotal={itemsTotal}
             />
-            <SortToggle />
           </div>
 
           {contains}
