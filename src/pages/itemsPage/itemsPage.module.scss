@@ -118,7 +118,6 @@
   }
 }
 
-
 @media screen and (min-width: 800px) {
   .gridContainer {
     grid-template-columns: repeat(4, 1fr);
@@ -126,8 +125,7 @@
     row-gap: 15px;
   }
   .sortToggle {
-    margin-right: auto;
-    margin-left: 0;
+    margin: auto;
   }
 }
 
