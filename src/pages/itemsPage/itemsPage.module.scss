@@ -20,7 +20,7 @@
   text-align: center;
   width: 150px;
   font-size: var(--min-font);
-  img{
+  img {
     width: 100%;
   }
   span {
@@ -32,9 +32,37 @@
   }
 }
 
+/* banner */
+.bannerContainer {
+  width: 100%;
+  aspect-ratio: 8/3;
+  margin: 5px 0px 15px 0px;
+  border-radius: 5px;
+  overflow: hidden;
+  img {
+    width: 101%;
+    height: 101%;
+    background-size: cover;
+  }
+  .banner {
+    display: none;
+  }
+  .bannerSmall {
+    display: block;
+  }
+}
+
 @media screen and (min-width: 600px) {
   .gridContainer {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .bannerContainer {
+    .banner {
+      display: block;
+    }
+    .bannerSmall {
+      display: none;
+    }
   }
 }
 

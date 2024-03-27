@@ -7,6 +7,18 @@ import Search from '../../common/search/Search'
 import useSearch from '../../hooks/useSearch'
 import dieIcon from '../../images/die.png'
 import YoutubeDiv from '../../common/youtubeDiv/YoutubeDiv'
+import banner from '../../images/banner.png'
+import bannerSmall from '../../images/banner-small.png'
+
+
+function Banner(){
+  return (
+    <div className={style.bannerContainer}>
+      <img className={style.banner} src={banner} alt='banner' />
+      <img className={style.bannerSmall} src={bannerSmall} alt='banner' />
+    </div>
+  )
+}
 
 function ItemsPage({ cartItemsId }) {
   const { search, setSearch } = useSearch()
@@ -71,6 +83,7 @@ function ItemsPage({ cartItemsId }) {
     <div className='page'>
       <div className='RWD-container'>
         <div className='background'>
+          <Banner/>
           <Search setSearch={setSearch} />
           <TagsSlider
             tags={tags}
