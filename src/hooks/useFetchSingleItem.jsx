@@ -6,11 +6,9 @@ function useFetchSingleItem(id) {
   const [isError, setIsError] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
 
-  // url
-  const itemUrl = url.server + '/items/' + id
-
   // effect
   useEffect(() => {
+    const itemUrl = url.server + '/items/' + id
     // abort controller
     const abortController = new AbortController()
 
@@ -43,7 +41,7 @@ function useFetchSingleItem(id) {
     return () => {
       abortController.abort()
     }
-  }, [itemUrl])
+  }, [id])
 
   return { item, fetchSingleItemError: isError, isLoading }
 }
