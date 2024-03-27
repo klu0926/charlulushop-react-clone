@@ -13,7 +13,6 @@ import { useState } from 'react'
 // hamburger and burger panel
 function Hamburger() {
   const [isOpen, setIsOpen] = useState(false)
-  console.log('isOpen: ', isOpen)
 
   function handleOpen(e) {
     const panel = document.querySelector('#burger-panel')

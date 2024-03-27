@@ -25,17 +25,20 @@ function Search({ setSearch }) {
   }
 
   return (
-    <div className={style.searchContainer}>
-      <input
-        id='searchInput'
-        className={style.searchInput}
-        type='text'
-        placeholder='找找看...'
-        onInput={handleInput}
-      />
-      <button className={style.reset} type='button' onClick={handleReset}>
-        x
-      </button>
+    <div className={style.searchWrapper}>
+      <div className={style.searchContainer}>
+        <input
+          id='searchInput'
+          className={style.searchInput}
+          type='text'
+          placeholder='找找看...'
+          onInput={handleInput}
+          autoComplete='off'
+        />
+        <button className={style.reset} type='button' onClick={handleReset}>
+          x
+        </button>
+      </div>
     </div>
   )
 }

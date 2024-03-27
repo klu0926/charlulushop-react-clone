@@ -102,7 +102,9 @@ function YoutubeDiv() {
                 title='YouTube video player'
                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
                 referrerPolicy='strict-origin-when-cross-origin'
-                allowFullScreen></iframe>
+                allowFullScreen
+                loading='lazy'
+                ></iframe>
             </div>
             <div className={style.infoBox}>
               <span className={style.infoTitle}>{videos[index].title}</span>
@@ -123,6 +125,7 @@ function YoutubeDiv() {
                     alt='thumbnail'
                     onClick={handleVideoClick}
                     data-id={index}
+                    loading='lazy'
                   />
                 </div>
               )

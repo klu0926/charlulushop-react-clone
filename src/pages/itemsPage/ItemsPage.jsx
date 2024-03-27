@@ -9,9 +9,9 @@ import dieIcon from '../../images/die.png'
 import YoutubeDiv from '../../common/youtubeDiv/YoutubeDiv'
 import banner from '../../images/banner.png'
 import bannerSmall from '../../images/banner-small.png'
+import { useState } from 'react'
 
-
-function Banner(){
+function Banner() {
   return (
     <div className={style.bannerContainer}>
       <img className={style.banner} src={banner} alt='banner' />
@@ -21,6 +21,7 @@ function Banner(){
 }
 
 function ItemsPage({ cartItemsId }) {
+  const [itemsTotal, setItemsTotal] = useState(0)
   const { search, setSearch } = useSearch()
   const {
     tags,
@@ -33,11 +34,53 @@ function ItemsPage({ cartItemsId }) {
     currentTagName,
     search,
   )
+  const [isSorted, setIsSorted] = useState(true)
+  const [sortedItems, setSortedItems] = useState([])
+
+  // sort items amount 0 to the end
+  function sortItems(items) {
+    if (items && items.length !== 0) {
+      return [...items].sort((a, b) => b.amount - a.amount)
+    }
+    return []
+  }
+
+  if (!isLoading && items && isSorted && items.length !== sortedItems.length) {
+    setSortedItems(sortItems(items))
+  }
+
+  function toggleItemSort() {
+    if (isSorted) {
+      setIsSorted(false)
+    } else if (items && items.length !== 0) {
+      setIsSorted(true)
+    }
+  }
+  function SortToggle() {
+    let toggleClass = style.sortToggle
+    if (isSorted) toggleClass += ` ${style.toggled}`
+    return (
+      <div className={toggleClass} onClick={toggleItemSort}>
+        <div className={style.sortCircle}></div>
+      </div>
+    )
+  }
+
+  // set total items count
+  if (!search && !currentTagName && items && itemsTotal !== items.length) {
+    setItemsTotal(items.length)
+  }
+
   function checkInCart(itemId) {
     if (itemId === undefined || !cartItemsId) return false
     return cartItemsId.some((i) => i === itemId)
   }
 
+  // 主內容使用的items種類
+  let contentItems = items
+  if (isSorted && sortedItems) {
+    contentItems = sortedItems
+  }
   // 主內容
   let contains = null
   if (isLoading) {
@@ -66,16 +109,22 @@ function ItemsPage({ cartItemsId }) {
         </div>
       </div>
     )
-  } else if (items && items.length !== 0) {
+  } else if (contentItems && contentItems.length !== 0) {
     // has items
     contains = (
-      <div className={style.gridContainer}>
-        {items.map((item) => {
-          return (
-            <ItemCard key={item.id} item={item} inCart={checkInCart(item.id)} />
-          )
-        })}
-      </div>
+      <>
+        <div className={style.gridContainer}>
+          {contentItems.map((item) => {
+            return (
+              <ItemCard
+                key={item.id}
+                item={item}
+                inCart={checkInCart(item.id)}
+              />
+            )
+          })}
+        </div>
+      </>
     )
   }
   // 回傳
@@ -83,15 +132,20 @@ function ItemsPage({ cartItemsId }) {
     <div className='page'>
       <div className='RWD-container'>
         <div className='background'>
-          <Banner/>
+          <Banner />
           <Search setSearch={setSearch} />
-          <TagsSlider
-            tags={tags}
-            currentTagName={currentTagName}
-            setCurrentTagName={setCurrentTagName}
-            isLoading={isTagLoading}
-            isError={isTagError}
-          />
+          <div className={style.tagsSortContainer}>
+            <TagsSlider
+              tags={tags}
+              currentTagName={currentTagName}
+              setCurrentTagName={setCurrentTagName}
+              isLoading={isTagLoading}
+              isError={isTagError}
+              itemsTotal={itemsTotal}
+            />
+            <SortToggle />
+          </div>
+
           {contains}
           <YoutubeDiv />
         </div>

@@ -1,7 +1,7 @@
 import style from './tagsSlider.module.scss'
-import LoadingIcon from '../loadingIcon/LoadingIcon'
 
 function TagsSlider({
+  itemsTotal,
   tags,
   currentTagName,
   setCurrentTagName,
@@ -13,21 +13,21 @@ function TagsSlider({
   }
 
   // [All] tag
-  function AllTag() {
+  function AllTag({ itemsTotal }) {
     let allTagClass = style.tag
     if (!currentTagName) {
       allTagClass = allTagClass + ' ' + style.current
     }
     return (
       <span className={allTagClass} key='all' onClick={() => handleOnclick('')}>
-        All
+        全部 | {itemsTotal}
       </span>
     )
   }
   // 內容
   let tagsContent = ''
   // skeleton
-  const tagsSkeleton = Array.from({ length: 9 }).map((_, index) => (
+  const tagsSkeleton = Array.from({ length: 7 }).map((_, index) => (
     <span key={`skeleton-${index}`} className={style.skeletonTag}></span>
   ))
 
@@ -55,7 +55,7 @@ function TagsSlider({
 
   return (
     <div className={style.tagsSlider}>
-      <AllTag />
+      <AllTag itemsTotal={itemsTotal} />
       {tagsContent}
     </div>
   )
