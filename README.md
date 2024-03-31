@@ -4,6 +4,8 @@ Charlulu Shop Frontend is the front-end service for the Charlulu Shop. It provid
 
 > **⚠️ Important Note:** Please be aware that this project does not handle payment transactions. It is designed solely for order management and email notifications to both buyers and sellers.
 
+🌐 Github Page : [https://klu0926.github.io/charlulushop-react/](https://klu0926.github.io/charlulushop-react/)
+
 
 ## Table of Contents 📖
 
@@ -19,7 +21,6 @@ Charlulu Shop Frontend is the front-end service for the Charlulu Shop. It provid
 
 ![pictures](/public/images/readme-page.png)
 
-
 ## 2. Features ⭐️
 
 - **User Authentication:** Secure login and registration.
@@ -30,7 +31,6 @@ Charlulu Shop Frontend is the front-end service for the Charlulu Shop. It provid
 - **React Hash Router:** Utilize React Hash Router to simulate URL changes for enhanced user experience.
 - **YouTube Integration:** Display the newest YouTube video from the seller's channel. The backend server fetches data from the YouTube API to provide the latest video.
 - **Responsive Design:** Optimized for various screen sizes, including mobile and desktop devices.
-
 
 ## 3. Technologies 🤓
 
@@ -104,6 +104,7 @@ npm run deploy
 ```
 
 ## 5. Contact Me 👋
+
 If you have any questions, feedback, or suggestions, feel free to reach out:
 
 - **Email:** [lukuoyu@gmail.com](mailto:your.email@example.com)
