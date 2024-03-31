@@ -52,7 +52,6 @@ Charlulu Shop Frontend is the front-end service for the Charlulu Shop. It provid
 
 ```
 git clone https://github.com/klu0926/charlulushop-react.git
-
 ```
 
 2. Navigate to the project directory:
@@ -68,12 +67,12 @@ cd charlulushop-react
 npm install
 ```
 
-### Setting Up the API Server
+### Setting Up Server API
 
-Before running the application, you need to configure the API server URL in the `/src/data/url.js` file. Follow these steps:
+Before running the application, you need to configure the server API URL in the `/src/data/url.js` file. Follow these steps:
 
 1. Open the `/src/data/url.js` file in your code editor.
-2. Depending on your environment, set the `server` variable to point to the API server URL. If you're deploying to GitHub Pages, use the Heroku URL. Otherwise, use the local server URL.
+2. Depending on your environment, set the `server` variable to point to the API server URL. If you're deploying to GitHub Pages, use the Heroku URL. Otherwise, when using on local, use the local server URL.
 
 ```javascript
 const isGitHubPages = window.location.hostname === 'your github url'
