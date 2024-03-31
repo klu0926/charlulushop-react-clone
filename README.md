@@ -17,8 +17,7 @@ Charlulu Shop Frontend is the front-end service for the Charlulu Shop. It provid
 
 ![cover](/public/images/readme-cover.png)
 
-![pictures](/public/images/readme-pages.png)
-
+![pictures](/public/images/readme-page.png)
 
 
 ## 2. Features ⭐️
