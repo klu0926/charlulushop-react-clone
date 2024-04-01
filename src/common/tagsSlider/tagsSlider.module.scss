@@ -9,8 +9,11 @@
   background-color: var(--primary-light3);
   padding: 5px 8px;
   border-radius: 10px 0px 0 10px;
+  height: 40px;
   .tag {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 2px 5px;
     background: white;
     border: 1px solid var(--primary);
@@ -18,6 +21,7 @@
     font-size: 0.85rem;
     color: var(--primary);
     transition: all 0.2s ease-in-out;
+    height: 25px;
     cursor: pointer;
     &:hover {
       background-color: var(--primary);
@@ -49,5 +53,6 @@
     border: none;
     padding: 10px;
     background-color: white;
+    height: auto;
   }
 }

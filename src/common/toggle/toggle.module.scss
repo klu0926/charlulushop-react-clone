@@ -1,0 +1,49 @@
+/* sortToggle */
+.sortToggle {
+  height: 25px;
+  max-width: 66px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2px 7px;
+  background-color: var(--secondary);
+  z-index: 10;
+  margin: auto;
+  margin-bottom: 5px;
+  cursor: pointer;
+  &.toggled {
+    background-color: var(--primary);
+    .sortText {
+      float: right;
+    }
+    .sortCircle {
+      float: left;
+    }
+  }
+  &.disabled {
+    background-color: var(--grey);
+    pointer-events: none;
+    .sortText {
+      color: var(--grey-light);
+    }
+    .sortCircle{
+      background-color: var(--grey-light);
+    }
+  }
+  .sortText {
+    float: left;
+    content: 'False';
+    line-height: 18px;
+    font-size: 0.8rem;
+    color: white;
+    margin: auto;
+    padding: 0 3px;
+  }
+  .sortCircle {
+    float: right;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background-color: white;
+    margin-top: 2px;
+  }
+}

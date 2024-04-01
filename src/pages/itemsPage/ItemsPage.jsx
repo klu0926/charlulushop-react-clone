@@ -10,6 +10,7 @@ import YoutubeDiv from '../../common/youtubeDiv/YoutubeDiv'
 import banner from '../../images/banner.png'
 import bannerSmall from '../../images/banner-small.png'
 import { useState, useCallback, useEffect, useRef } from 'react'
+import Toggle from '../../common/toggle/Toggle'
 
 function Banner() {
   return (
@@ -35,10 +36,11 @@ function ItemsPage({ cartItemsId }) {
     search,
   )
   const [isSorted, setIsSorted] = useState(true)
+  const [isOnlyInStock, setIsOnlyInStock] = useState(true)
   const [sortedItems, setSortedItems] = useState([])
   const scrollYRef = useRef(null)
 
-  // add event lister to scroll
+  // 記住ScrollY
   useEffect(() => {
     // scroll to previous scrollY
     // setTimeout 等待頁面loading
@@ -68,6 +70,7 @@ function ItemsPage({ cartItemsId }) {
     return []
   }
 
+  // set sortedItems
   if (!isLoading && items && isSorted && items.length !== sortedItems.length) {
     setSortedItems(sortItems(items))
   }
@@ -79,14 +82,10 @@ function ItemsPage({ cartItemsId }) {
       setIsSorted(true)
     }
   }
-  function SortToggle() {
-    let toggleClass = style.sortToggle
-    if (isSorted) toggleClass += ` ${style.toggled}`
-    return (
-      <div className={toggleClass} onClick={toggleItemSort}>
-        <div className={style.sortCircle}></div>
-      </div>
-    )
+
+  // isOnlyInStock
+  function ToggleIsOnlyStock() {
+    setIsOnlyInStock((prev) => !prev)
   }
 
   // set total items count
@@ -99,11 +98,17 @@ function ItemsPage({ cartItemsId }) {
     return cartItemsId.some((i) => i === itemId)
   }
 
-  // 主內容使用的items種類
-  let contentItems = items
+  // 貨物
+  let contentItems = items ? [...items] : []
+  // 貨物 sorted
   if (isSorted && sortedItems) {
     contentItems = sortedItems
   }
+  // 貨物 isOnlyInStock
+  if (isOnlyInStock) {
+    contentItems = contentItems.filter((item) => item.amount !== 0)
+  }
+
   // 主內容
   let contains = null
   if (isLoading) {
@@ -158,7 +163,21 @@ function ItemsPage({ cartItemsId }) {
           <Banner />
           <Search setSearch={setSearch} />
           <div className={style.tagsSortContainer}>
-            <SortToggle />
+            <div className={style.togglesContainer}>
+              <Toggle
+                handleOnClick={ToggleIsOnlyStock}
+                onText={'有貨'}
+                offText={'全部'}
+              />
+
+              <Toggle
+                handleOnClick={toggleItemSort}
+                onText={'庫存'}
+                offText={'最新'}
+                disabled={isOnlyInStock}
+              />
+            </div>
+
             <TagsSlider
               tags={tags}
               currentTagName={currentTagName}

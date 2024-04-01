@@ -53,46 +53,8 @@
   }
 }
 
-/* sortToggle */
-.sortToggle {
-  padding: 3px 4px;
-  border-radius: 14px;
-  width: 72px;
-  height: 29px;
-  padding: 3px 7px;
-  background-color: var(--secondary);
-  border: 1px solid var(--border);
-  z-index: 10;
+.togglesContainer {
   margin: auto;
-  margin-left: auto;
-  cursor: pointer;
-
-  &.toggled {
-    background-color: var(--primary);
-    &:after {
-      float: right;
-      content: '庫存';
-    }
-    .sortCircle {
-      float: left;
-    }
-  }
-  &::after {
-    float: left;
-    content: '最新';
-    line-height: 19px;
-    font-size: 0.85rem;
-    color: white;
-    margin: auto;
-  }
-  .sortCircle {
-    float: right;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background-color: white;
-    margin: auto;
-  }
 }
 
 /* TagsSortContainer */
@@ -123,9 +85,6 @@
     grid-template-columns: repeat(4, 1fr);
     column-gap: calc((100% - 4 * 1fr) / 3);
     row-gap: 15px;
-  }
-  .sortToggle {
-    margin: auto;
   }
 }
 
