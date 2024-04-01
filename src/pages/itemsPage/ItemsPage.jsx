@@ -9,7 +9,7 @@ import dieIcon from '../../images/die.png'
 import YoutubeDiv from '../../common/youtubeDiv/YoutubeDiv'
 import banner from '../../images/banner.png'
 import bannerSmall from '../../images/banner-small.png'
-import { useState } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 
 function Banner() {
   return (
@@ -36,6 +36,29 @@ function ItemsPage({ cartItemsId }) {
   )
   const [isSorted, setIsSorted] = useState(true)
   const [sortedItems, setSortedItems] = useState([])
+  const scrollYRef = useRef(null)
+
+  // add event lister to scroll
+  useEffect(() => {
+    // scroll to previous scrollY
+    // setTimeout 等待頁面loading
+    const scrollY = localStorage.getItem('scroll-y') || 0
+    setTimeout(() => {
+      window.scrollTo(0, scrollY)
+    }, 100)
+
+    // handle scrolling
+    function handleScrollY() {
+      scrollYRef.current = window.scrollY
+    }
+    document.addEventListener('scroll', handleScrollY)
+
+    // clean up
+    return () => {
+      document.removeEventListener('scroll', handleScrollY)
+      localStorage.setItem('scroll-y', scrollYRef.current)
+    }
+  }, [])
 
   // sort items amount 0 to the end
   function sortItems(items) {
