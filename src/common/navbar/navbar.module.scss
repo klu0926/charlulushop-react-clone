@@ -183,7 +183,6 @@
   .burgerPanelLeft {
     display: block;
     padding: 20px 15px;
-    background-color: white;
     background-color: var(--secondary);
     height: 101vh;
     width: 140px;
@@ -204,7 +203,7 @@
     border-radius: 5px;
     cursor: pointer;
     &:hover {
-      background-color: var(--primary-light);
+      background-color: var(--secondary-light);
     }
     .burgerCloseImg {
       width: 60%;
@@ -226,7 +225,7 @@
       padding: 2px 6px;
       border-radius: 5px;
       &:hover {
-        background-color: var(--primary-light);
+        background-color: var(--secondary-light);
       }
     }
   }
