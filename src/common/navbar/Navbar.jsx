@@ -19,15 +19,18 @@ function Hamburger() {
     if (panel) {
       setIsOpen(true)
       panel.style.display = 'block'
+      document.body.style.overflow = 'hidden'
     }
   }
   function handleClose() {
     const panel = document.querySelector('#burger-panel')
     if (panel) {
       setIsOpen(false)
+      document.body.style.overflow = 'auto'
+
       setTimeout(() => {
         panel.style.display = 'none'
-      }, 500)
+      }, 300)
     }
   }
 
@@ -39,16 +42,15 @@ function Hamburger() {
 
   return (
     <>
-      <div className={style.burgerContainer}>
-        <div
-          className={style.burgerOpen}
-          type='checkbox'
-          id='burgerOpen'
-          onClick={handleOpen}
-        />
-        <div className={style.burgerLink}></div>
-        <div className={style.burgerLink}></div>
-        <div className={style.burgerLink}></div>
+      <div
+        id='burgerOpen'
+        className={style.burgerContainer}
+        onClick={handleOpen}>
+        <div className={style.burgerLines}>
+          <div className={style.line}></div>
+          <div className={style.line}></div>
+          <div className={style.line}></div>
+        </div>
       </div>
       <div id='burger-panel' className={panelClass}>
         <div
