@@ -38,7 +38,6 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
 
   function cartCountJump() {
     const cartCount = document.querySelector('#cart-count')
-    console.log('cartCount', cartCount)
     if (cartCount) {
       cartCount.classList.remove('jump')
       setTimeout(() => {
