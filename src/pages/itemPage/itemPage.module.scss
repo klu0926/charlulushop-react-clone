@@ -5,6 +5,7 @@
 
   /*images container*/
   .itemImageGroupContainer {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -110,14 +111,12 @@
     .addButton {
       width: 100%;
       max-width: 160px;
-      padding: 10px;
-      margin: 10px auto;
+      padding: 10px 5px;
       font-size: var(--mid-font);
     }
     .addButtonDisable {
       width: 150px;
-      padding: 10px;
-      margin: 10px auto;
+      padding: 10px 5px;
       background-color: var(--grey);
       box-shadow: none;
       cursor: default;
@@ -130,10 +129,41 @@
     .removeButton {
       width: 100%;
       max-width: 160px;
-      padding: 10px;
-      margin: 10px auto;
+      padding: 10px 5px;
       background-color: var(--primary);
     }
+  }
+}
+
+.backButton {
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 0;
+  min-width: 70px;
+  background-color: var(--grey-dark);
+  font-size: 1rem;
+  z-index: 5;
+  &:hover {
+    background-color: var(--grey);
+  }
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.backButtonBelow {
+  max-width: 100px;
+  padding: 10px 5px;
+  min-width: 100px;
+  font-size: var(--mid-font);
+  background-color: var(--grey-dark);
+  &:hover {
+    background-color: var(--grey);
   }
 }
 
@@ -148,6 +178,12 @@
 @media screen and (min-width: 600px) {
   .itemContainer {
     flex-direction: row;
+  }
+  .backButton {
+    display: block;
+  }
+  .backButtonBelow {
+    display: none;
   }
 }
 

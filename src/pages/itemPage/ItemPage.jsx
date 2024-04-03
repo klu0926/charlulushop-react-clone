@@ -66,6 +66,11 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
     content = (
       <div className={style.itemContainer}>
         <div className={style.itemImageGroupContainer}>
+          <button
+            className={style.backButton}
+            onClick={() => window.history.back()}>
+            返回
+          </button>
           <div className={style.itemCoverContainer}>
             <img
               id='coverImage'
@@ -114,21 +119,30 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
               <span>{item.price}</span>
             </p>
           </div>
-          {status === 'available' && (
-            <button className={style.addButton} onClick={handleAddButtonClick}>
-              加入購物車
-            </button>
-          )}
-          {status === 'inCart' && (
+          <div className={style.buttonsContainer}>
             <button
-              className={style.removeButton}
-              onClick={handleRemoveButtonClick}>
-              移除
+              className={style.backButtonBelow}
+              onClick={() => window.history.back()}>
+              返回
             </button>
-          )}
-          {status === 'sold' && (
-            <button className={style.addButtonDisable}>商品已售出</button>
-          )}
+            {status === 'available' && (
+              <button
+                className={style.addButton}
+                onClick={handleAddButtonClick}>
+                加入購物車
+              </button>
+            )}
+            {status === 'inCart' && (
+              <button
+                className={style.removeButton}
+                onClick={handleRemoveButtonClick}>
+                移除
+              </button>
+            )}
+            {status === 'sold' && (
+              <button className={style.addButtonDisable}>商品已售出</button>
+            )}
+          </div>
         </div>
       </div>
     )

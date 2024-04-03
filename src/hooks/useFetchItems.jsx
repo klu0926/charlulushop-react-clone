@@ -11,7 +11,13 @@ function useFetchItems(tag, search) {
   itemsUrl += '?queryTag=' + queryTag + '&' + 'search=' + querySearch
 
   // SWR
-  const { data, error, isLoading } = useSWRFetcher(itemsUrl)
-  return { items: data?.data || [], isLoading, fetchItemsError: error }
+  const { data, error, isLoading, mutate } = useSWRFetcher(itemsUrl)
+  return {
+    items: data?.data || [],
+    isLoading,
+    fetchItemsError: error,
+    key: itemsUrl,
+    mutate,
+  }
 }
 export default useFetchItems

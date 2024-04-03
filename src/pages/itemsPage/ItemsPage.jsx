@@ -31,7 +31,7 @@ function ItemsPage({ cartItemsId }) {
     currentTagName,
     setCurrentTagName,
   } = useFetchTags()
-  const { items, isLoading, fetchItemsError } = useFetchItems(
+  const { items, isLoading, fetchItemsError, key, mutate } = useFetchItems(
     currentTagName,
     search,
   )
@@ -40,26 +40,9 @@ function ItemsPage({ cartItemsId }) {
   const [sortedItems, setSortedItems] = useState([])
   const scrollYRef = useRef(null)
 
-  // 記住ScrollY
+  // 自動刷新
   useEffect(() => {
-    // scroll to previous scrollY
-    // setTimeout 等待頁面loading
-    const scrollY = localStorage.getItem('scroll-y') || 0
-    setTimeout(() => {
-      window.scrollTo(0, scrollY)
-    }, 100)
-
-    // handle scrolling
-    function handleScrollY() {
-      scrollYRef.current = window.scrollY
-    }
-    document.addEventListener('scroll', handleScrollY)
-
-    // clean up
-    return () => {
-      document.removeEventListener('scroll', handleScrollY)
-      localStorage.setItem('scroll-y', scrollYRef.current)
-    }
+    mutate(key)
   }, [])
 
   // sort items amount 0 to the end
@@ -187,7 +170,6 @@ function ItemsPage({ cartItemsId }) {
               itemsTotal={itemsTotal}
             />
           </div>
-
           {contains}
           <YoutubeDiv />
         </div>
