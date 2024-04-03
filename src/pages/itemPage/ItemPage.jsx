@@ -205,9 +205,7 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
   return (
     <div className='page'>
       <div className='RWD-container'>
-        <div className='background'>
-          <ItemPageSkeleton/>
-        </div>
+        <div className='background'>{content}</div>
       </div>
     </div>
   )
