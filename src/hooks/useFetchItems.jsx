@@ -13,7 +13,7 @@ function useFetchItems(tag, search) {
   // SWR
   const { data, error, isLoading, mutate } = useSWRFetcher(itemsUrl)
   return {
-    items: data?.data || [],
+    items: data?.data,
     isLoading,
     fetchItemsError: error,
     key: itemsUrl,

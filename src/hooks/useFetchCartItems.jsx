@@ -7,7 +7,7 @@ function useFetchCartItems(cartItemIds = []) {
 
   const { data, isLoading, error } = useSWRFetcher(itemsUrl)
 
-  return { items: data?.data || [], isLoading, isError: error }
+  return { items: data?.data, isLoading, isError: error }
 }
 
 export default useFetchCartItems
