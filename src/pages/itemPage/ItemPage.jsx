@@ -6,8 +6,44 @@ import { useEffect } from 'react'
 import LoadingIcon from '../../common/loadingIcon/LoadingIcon'
 // image
 import leftPNG from '../../images/left.png'
-
 const imageUrl = url.server + '/images/' // /images/:imageId
+
+function ItemPageSkeleton() {
+  return (
+    <>
+      <button
+        className={style.backButton}
+        onClick={() => window.history.back()}>
+        <img src={leftPNG} alt='back' />
+      </button>
+      <div className={style.itemContainer}>
+        <div className={style.itemImageGroupContainer}>
+          <div className={style.itemCoverContainer}>
+            <div className={style.coverSkeleton}></div>
+          </div>
+          <div className={style.pictureSlider}>
+            {Array.from({ length: 3 }, (index) => index).map((i) => (
+              <div
+                key={`skeleton-pic-${i}`}
+                className={style.itemPictureSkeleton}></div>
+            ))}
+          </div>
+        </div>
+        <div className={style.infoContainer}>
+          <div className={style.infoSkeleton}>
+            <p className='skeletonText name'></p>
+            <p className='skeletonText tag'></p>
+            <p className='skeletonText p'></p>
+            <p className='skeletonText p'></p>
+            <p className='skeletonText p'></p>
+            <p className='skeletonText p'></p>
+            <p className='skeletonText p'></p>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
 
 function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
   const { itemId } = useParams()
@@ -67,7 +103,7 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
   if (isLoading) {
     content = (
       <div className={style.placeholder}>
-        <LoadingIcon />
+        <ItemPageSkeleton />
       </div>
     )
   } else if (isError) {
@@ -169,7 +205,10 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
   return (
     <div className='page'>
       <div className='RWD-container'>
-        <div className='background'>{content}</div>
+        <div className='background'>
+          {content}
+          
+        </div>
       </div>
     </div>
   )
