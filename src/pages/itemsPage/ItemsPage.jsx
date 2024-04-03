@@ -9,7 +9,7 @@ import dieIcon from '../../images/die.png'
 import YoutubeDiv from '../../common/youtubeDiv/YoutubeDiv'
 import banner from '../../images/banner.png'
 import bannerSmall from '../../images/banner-small.png'
-import { useState, useCallback, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import Toggle from '../../common/toggle/Toggle'
 
 function Banner() {
@@ -38,7 +38,6 @@ function ItemsPage({ cartItemsId }) {
   const [isSorted, setIsSorted] = useState(true)
   const [isOnlyInStock, setIsOnlyInStock] = useState(true)
   const [sortedItems, setSortedItems] = useState([])
-  const scrollYRef = useRef(null)
 
   // 自動刷新
   useEffect(() => {

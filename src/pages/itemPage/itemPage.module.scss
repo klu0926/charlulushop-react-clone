@@ -136,16 +136,23 @@
 }
 
 .backButton {
-  position: absolute;
   display: none;
-  left: 0;
-  top: 0;
-  min-width: 70px;
-  background-color: var(--grey-dark);
+  width: 40px;
+  height: 40px;
+  background-color: white;
   font-size: 1rem;
-  z-index: 5;
+  padding: 0;
+  box-shadow: none;
   &:hover {
-    background-color: var(--grey);
+    background-color: var(--grey-light);
+    box-shadow: none;
+    filter: none;
+  }
+  img {
+    width: 60%;
+    margin: auto;
+    background-size: cover;
+    filter:opacity(0.5)
   }
 }
 
@@ -157,11 +164,10 @@
   width: 100%;
 }
 .backButtonBelow {
-  max-width: 100px;
   padding: 10px 5px;
-  min-width: 100px;
+  min-width: 80px;
   font-size: var(--mid-font);
-  background-color: var(--grey-dark);
+  background-color: var(--grey);
   &:hover {
     background-color: var(--grey);
   }

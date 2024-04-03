@@ -92,7 +92,7 @@ button {
   cursor: pointer;
 }
 button:hover {
-  background-color: var(--secondary-light);
+  filter: brightness(1.1) saturate(0.8);
   box-shadow: 0.5px 0.5px 1px var(--shadow);
   transform: scale(0.99);
 }
@@ -192,6 +192,28 @@ button:hover {
   }
   100% {
     opacity: 100%;
+  }
+}
+
+.jump {
+  animation: jump 0.3s linear forwards;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0) scale(0.9);
+  }
+  50% {
+    transform: translateY(-30%);
+  }
+  75% {
+    transform: translateY(7%) scale(1.15);
+  }
+  95% {
+    transform: translateY(0) scale(0.95);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 

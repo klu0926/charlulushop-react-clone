@@ -126,11 +126,13 @@ function Cart({ cartItemsId }) {
       panel.style.display = 'none'
     }
   }
+
+
   return (
     <a className={style.cart} href={cartPageUrl} onClick={closeMenuPanel}>
       <img className={style.cartIcon} src={cartIcon} alt='cart' />
       {cartItemsId && (
-        <div className={style.cartCount}>
+        <div id='cart-count' className={style.cartCount}>
           {cartItemsId ? cartItemsId.length : 0}
         </div>
       )}
