@@ -72,7 +72,7 @@ export function ItemCard({ item, inCart }) {
           />
         </div>
         <div className={style.itemInfoDiv}>
-          <span className={style.itemName}> {name} </span>
+          <p className={style.itemName}> {name} </p>
           <div className={style.itemPriceDiv}>
             <span className={style.itemPrice}>{price} </span>
             <span className={style.itemStock}>售完</span>
@@ -92,7 +92,7 @@ export function ItemCard({ item, inCart }) {
           />
         </div>
         <div className={style.itemInfoDiv}>
-          <span className={style.itemName}> {name} </span>
+          <p className={style.itemName}> {name} </p>
           <div className={style.itemPriceDiv}>
             <span className={style.itemPrice}>{price} </span>
             <span className={style.itemStock}>有貨</span>
