@@ -1,5 +1,5 @@
 import loadingPng from '../../images/loading.png'
-function loadingIcon() {
+function LoadingIcon() {
   return (
     <span
       className='loadingIcon'
@@ -7,4 +7,4 @@ function loadingIcon() {
   )
 }
 
-export default loadingIcon
+export default LoadingIcon

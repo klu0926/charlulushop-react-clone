@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import url from '../data/url'
 import useSWRFetcher from './useSWRFetcher'
 

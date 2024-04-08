@@ -1,5 +1,4 @@
 import url from '../data/url'
-import useSWR from 'swr'
 import useSWRFetcher from './useSWRFetcher'
 
 function useFetchItems(tag, search) {
