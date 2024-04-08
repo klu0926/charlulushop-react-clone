@@ -1,4 +1,5 @@
 import { HashRouter, Route, Routes, Navigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import './App.css'
 import ItemPage from './pages/itemPage/ItemPage.jsx'
 import ItemsPage from './pages/itemsPage/ItemsPage.jsx'
@@ -6,23 +7,47 @@ import OrdersPage from './pages/ordersPage/OrdersPage.jsx'
 import CartPage from './pages/cartPage/CartPage.jsx'
 import Navbar from './common/navbar/Navbar.jsx'
 import Footer from './common/footer/Footer.jsx'
+import LogoutFooter from './common/logoutFooter/LogoutFooter.jsx'
 // hooks
 import useCart from './hooks/useCart.jsx'
 import useShopStatus from './hooks/useShopStatus.jsx'
 
 // app notice
 import LoadingIcon from './common/loadingIcon/LoadingIcon.jsx'
-import sorryPNG from './images/sorry.png'
 import cryPNG from './images/cry-144.png'
 
+// helper
+import loginFrom from './helpers/loginFrom.js'
+import isAuthenticated from './helpers/authenticate.js'
+import sweetAlert from './helpers/sweetAlert.js'
+
+// 登入按鈕
+async function handleAdminClick() {
+  loginFrom()
+}
+
+// ------------------------------------ //
 function App() {
   // shop status
   const { shopStatus, isLoading, fetchShopStatusError } = useShopStatus()
+  // isAuthenticated
+  const [isLogin, setIsLogin] = useState(false)
+
+  useEffect(() => {
+    async function handleAuthentication() {
+      const isAuth = await isAuthenticated()
+      if (isAuth) {
+        setIsLogin(true)
+      }
+    }
+    handleAuthentication()
+  }, [])
 
   // cart
   const { cartItemsId, addCartItem, removeCartItem, clearAllCartItems } =
     useCart()
 
+  // url
   const itemsPageUrl = '/items'
   const itemPageUrl = '/items/:itemId'
   const ordersPageUrl = '/orders'
@@ -55,7 +80,7 @@ function App() {
         {IG}
       </div>
     )
-  } else if (!isLoading && shopStatus?.isLock) {
+  } else if (!isLoading && shopStatus?.isLock && !isLogin) {
     // 商店被鎖
     content = (
       <div className='app-notice'>
@@ -63,6 +88,11 @@ function App() {
         <h2>{shopStatus.reason}</h2>
         <p>{shopStatus.message}</p>
         {IG}
+        <div style={{ marginTop: 10 }}>
+          <button className='btn-border' onClick={handleAdminClick}>
+            管理者登入
+          </button>
+        </div>
       </div>
     )
   } else {
@@ -100,6 +130,7 @@ function App() {
           </div>
         </HashRouter>
         <Footer></Footer>
+        {isLogin && <LogoutFooter />}
       </>
     )
   }

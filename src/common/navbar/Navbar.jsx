@@ -127,7 +127,6 @@ function Cart({ cartItemsId }) {
     }
   }
 
-
   return (
     <a className={style.cart} href={cartPageUrl} onClick={closeMenuPanel}>
       <img className={style.cartIcon} src={cartIcon} alt='cart' />
@@ -140,7 +139,7 @@ function Cart({ cartItemsId }) {
   )
 }
 
-function Navbar({ cartItemsId }) {
+function Navbar({ cartItemsId, children }) {
   return (
     <div className={style.navbar}>
       <div className='RWD-container'>

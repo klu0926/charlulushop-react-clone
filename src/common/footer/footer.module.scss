@@ -1,12 +1,13 @@
 .footer {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   width: 100%;
+  padding-top: 20px;
   min-height: 200px;
   background-color: var(--dark);
   color: white;
-  margin-top: 30px;
+  margin-top: 0px;
   z-index: 100;
   .mediaContainer {
     display: flex;
@@ -33,6 +34,3 @@
     text-decoration: underline !important;
   }
 }
-
-
-

@@ -1,10 +1,11 @@
 .navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
   position: fixed;
   width: 100%;
   top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: var(--primary);
   min-height: 45px;
   box-shadow: 1px 3px 5px var(--shadow);
@@ -258,7 +259,6 @@
     transform: translate(-100%);
   }
 }
-
 
 @media screen and (min-width: 600px) {
   .navbar {

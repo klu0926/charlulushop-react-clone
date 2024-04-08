@@ -22,7 +22,7 @@ function ItemPageSkeleton() {
             <div className={style.coverSkeleton}></div>
           </div>
           <div className={style.pictureSlider}>
-            {Array.from({ length: 3 }, (index) => index).map((i) => (
+            {Array.from({ length: 3 }, (_, index) => index).map((i) => (
               <div
                 key={`skeleton-pic-${i}`}
                 className={style.itemPictureSkeleton}></div>
@@ -156,7 +156,7 @@ function ItemPage({ cartItemsId, addToCart, removeCartItem }) {
             <div className={style.tagsContainer}>
               {item.tags &&
                 item.tags.map((t) => (
-                  <span key={t.id} className={style.tag}>
+                  <span key={`tags-key-${t.id}`} className={style.tag}>
                     {t.name}
                   </span>
                 ))}

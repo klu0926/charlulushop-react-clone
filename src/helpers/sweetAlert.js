@@ -8,7 +8,7 @@ const sweetAlert = {
         icon: "success",
         text: text || '',
         showConfirmButton: false,
-        timer: timer || 1500,
+        timer: timer || 2000,
         customClass: {
           title: 'swal-title',
         }
@@ -60,7 +60,7 @@ const sweetAlert = {
         text: text || '',
         confirmButtonText: '好吧',
         confirmButtonColor: '#F7647D',
-        closeOnClickOutside: false, 
+        closeOnClickOutside: false,
         allowOutsideClick: false,
         customClass: {
           title: 'swal-title',
@@ -131,7 +131,6 @@ const sweetAlert = {
           const email = document.querySelector('#email').value.trim()
           const ig = document.querySelector('#ig').value.trim()
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          console.log(name, email ,ig)
 
           if (!name || !email || !ig) {
             Swal.showValidationMessage('請輸入全部資訊')
@@ -140,6 +139,36 @@ const sweetAlert = {
             Swal.showValidationMessage('請輸入有效的信箱')
           }
           return { name, email, ig }
+        },
+      }).then(result => {
+        return resolve(result)
+      })
+    })
+  },
+  loginForm: () => {
+    return new Promise((resolve, reject) => {
+      Swal.fire({
+        title: '管理者登入',
+        html: `
+    <input type="text" id="name" class="swal2-input" placeholder="名稱">
+    <input type="text" id="password" class="swal2-input" placeholder="密碼">
+  `,
+        showDenyButton: true,
+        confirmButtonText: '登入',
+        confirmButtonColor: '#3894F1',
+        denyButtonText: '取消',
+        denyButtonColor: '#F7647D',
+        customClass: {
+          title: 'swal-title',
+        },
+        preConfirm: () => {
+          const name = document.querySelector('#name').value.trim()
+          const password = document.querySelector('#password').value.trim()
+
+          if (!name || !password) {
+            Swal.showValidationMessage('請輸入全部資訊')
+          }
+          return { name, password }
         },
       }).then(result => {
         return resolve(result)

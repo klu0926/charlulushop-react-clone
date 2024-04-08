@@ -2,7 +2,6 @@ import style from './ordersPage.module.scss'
 import useFetchOrders from '../../hooks/useFetchOrder'
 import sweetAlert from '../../helpers/sweetAlert'
 import url from '../../data/url'
-import LoadingIcon from '../../common/loadingIcon/LoadingIcon'
 import { useState, useEffect } from 'react'
 import sorryIcon from '../../images/sorry.png'
 
