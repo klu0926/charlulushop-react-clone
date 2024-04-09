@@ -151,7 +151,7 @@ const sweetAlert = {
         title: '管理者登入',
         html: `
     <input type="text" id="name" class="swal2-input" placeholder="名稱">
-    <input type="text" id="password" class="swal2-input" placeholder="密碼">
+    <input type="password" id="password" class="swal2-input" placeholder="密碼">
   `,
         showDenyButton: true,
         confirmButtonText: '登入',

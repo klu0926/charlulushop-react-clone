@@ -9,13 +9,25 @@
   color: white;
   padding: 10px 0px;
   z-index: 100;
-  .button {
-    font-size: var(--min-font);
-    background-color: rgb(29, 29, 29);
-    border: 1px solid white;
-    color: white;
-    &:hover {
-      background-color: rgb(67, 67, 67);
+  .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .button {
+      font-size: var(--min-font);
+      background-color: rgb(29, 29, 29);
+      border: 1px solid white;
+      color: white;
+      &:hover {
+        background-color: rgb(67, 67, 67);
+      }
     }
   }
 }

@@ -1,9 +1,13 @@
 import loadingPng from '../../images/loading.png'
-function LoadingIcon() {
+function LoadingIcon({ size = 25 }) {
   return (
     <span
       className='loadingIcon'
-      style={{ backgroundImage: `url(${loadingPng})` }}></span>
+      style={{
+        backgroundImage: `url(${loadingPng})`,
+        width: `${size}px`,
+        height: `${size}px`,
+      }}></span>
   )
 }
 
