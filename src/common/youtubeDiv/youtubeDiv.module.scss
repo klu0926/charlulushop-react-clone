@@ -68,11 +68,13 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
 }
 
 .videoThumbnail {
   width: 100%;
-  max-width: 150px;
   margin: auto;
   cursor: pointer;
   img {
@@ -192,7 +194,7 @@
   }
   .videoThumbnailsDiv {
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    gap: 15px;
   }
   .skeletonContainer {
     flex-direction: row;
