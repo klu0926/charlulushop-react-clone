@@ -12,7 +12,7 @@
   font-size: var(--min-font);
 }
 
-.videosContainer {
+.mainVideoContainer {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -64,16 +64,16 @@
   aspect-ratio: 560/315;
 }
 
-.videosDivContainers {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
+.videoThumbnailsDiv {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
 
-.videosImageHolder {
-  width: 120px;
-  aspect-ratio: 320/180;
+.videoThumbnail {
+  width: 100%;
+  max-width: 150px;
+  margin: auto;
   cursor: pointer;
   img {
     width: 100%;
@@ -172,7 +172,7 @@
 }
 
 @media screen and (min-width: 800px) {
-  .videosContainer {
+  .mainVideoContainer {
     flex-direction: row;
   }
   .title {
@@ -190,9 +190,9 @@
       font-size: var(--min-font);
     }
   }
-  .videosDivContainers {
-    justify-content: center;
-    gap: 15px;
+  .videoThumbnailsDiv {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
   }
   .skeletonContainer {
     flex-direction: row;

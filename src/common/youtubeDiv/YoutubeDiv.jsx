@@ -94,7 +94,7 @@ function YoutubeDiv() {
       <>
         <div className={style.youtubeDiv}>
           <span className={style.tip}>逛累了嗎？ 休息一下看個影片吧！</span>
-          <div className={style.videosContainer}>
+          <div className={style.mainVideoContainer}>
             <div className={style.videoBox}>
               <iframe
                 className={style.iframe}
@@ -103,8 +103,7 @@ function YoutubeDiv() {
                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
                 referrerPolicy='strict-origin-when-cross-origin'
                 allowFullScreen
-                loading='lazy'
-                ></iframe>
+                loading='lazy'></iframe>
             </div>
             <div className={style.infoBox}>
               <span className={style.infoTitle}>{videos[index].title}</span>
@@ -114,12 +113,12 @@ function YoutubeDiv() {
               </span>
             </div>
           </div>
-          <div className={style.videosDivContainers}>
+          <div className={style.videoThumbnailsDiv}>
             {videos.map((video, index) => {
               return (
                 <div
                   key={`${video.videoId}`}
-                  className={style.videosImageHolder}>
+                  className={style.videoThumbnail}>
                   <img
                     src={video.thumbnails.medium.url}
                     alt='thumbnail'
