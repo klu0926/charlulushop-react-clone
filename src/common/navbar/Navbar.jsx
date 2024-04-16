@@ -69,18 +69,21 @@ function Hamburger() {
               className={style.burgerLink}
               href={itemsPageUrl}
               onClick={handleClose}>
+              <i className='fa-solid fa-box'></i>
               全部好貨
             </a>
             <a
               className={style.burgerLink}
               href={orderPageUrl}
               onClick={handleClose}>
+              <i className='fa-solid fa-magnifying-glass'></i>
               查詢訂單
             </a>
             <a
               className={style.burgerLink}
               href={cartPageUrl}
               onClick={handleClose}>
+              <i className='fa-solid fa-cart-shopping'></i>
               購物車
             </a>
           </div>
