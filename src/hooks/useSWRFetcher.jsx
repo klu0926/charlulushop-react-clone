@@ -1,7 +1,9 @@
-import useSWR from 'swr'
+import useSWR from 'swr';
 
-const fetcher = (url) => fetch(url).then((res) => res.json())
+// Updated fetcher to include credentials for cross-site cookies/session
+const fetcher = (url) =>
+  fetch(url, { credentials: 'include' }).then((res) => res.json());
 
 export default function useSWRFetcher(url) {
-  return useSWR(url, fetcher, {})
+  return useSWR(url, fetcher, {});
 }
