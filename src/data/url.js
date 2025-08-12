@@ -5,7 +5,8 @@ const base = ''
 //const base = '/charlulushop-react'
 
 const url = {
-  server: isLocal ? local : heroku,
+  // server: isLocal ? local : heroku,
+  server: heroku,
   client: base,
 }
 export default url
