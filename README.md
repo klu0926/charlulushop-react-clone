@@ -4,7 +4,7 @@ Charlulu Shop Frontend is the front-end service for the Charlulu Shop. It provid
 
 > **⚠️ Important Note:** Please be aware that this project does not handle payment transactions. It is designed solely for order management and email notifications to both buyers and sellers.
 
-🌐 Github Page : [https://klu0926.github.io/charlulushop-react/](https://klu0926.github.io/charlulushop-react/)
+🌐 Github Page : [https://klu0926.github.io/charlulushop-react-clone](https://klu0926.github.io/charlulushop-react-clone/)
 
 
 ## Table of Contents 📖
